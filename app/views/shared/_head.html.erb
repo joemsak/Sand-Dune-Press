@@ -1,0 +1,17 @@
+<head>
+  <meta charset='<%= ::Refinery::Application.config.encoding %>' />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title><%= browser_title(yield(:title)) %></title>
+  <%= raw "<meta name=\"description\" content=\"#{@meta.meta_description}\" />" if @meta.meta_description.present? -%>
+  <%= raw "<meta name=\"keywords\" content=\"#{@meta.meta_keywords}\">" if @meta.meta_keywords.present? -%>
+  <%= csrf_meta_tag if RefinerySetting.find_or_set(:authenticity_token_on_frontend, true)-%>
+  <%= yield :meta %>
+  
+  <%= stylesheet_link_tag "compiled/screen", :media => :screen %>
+  <%= stylesheet_link_tag "compiled/print", :media => :print %>
+
+  <%= yield :stylesheets %>
+  <%= render :partial => '/shared/google_analytics' unless local_request? %>
+
+  <%= javascript_include_tag 'modernizr-min' %>
+</head>

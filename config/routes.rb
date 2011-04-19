@@ -1,4 +1,8 @@
 Sanddunepress::Application.routes.draw do
+	root :to => "blog/posts#index"
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
