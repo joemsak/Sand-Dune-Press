@@ -6,44 +6,298 @@
 
 // Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
+@import "compass/css3";
 
-// Import the non-default scaffolding module.
-@import "blueprint/scaffolding";
 
-// To generate css equivalent to the blueprint css but with your
-// configuration applied, uncomment:
-// @include blueprint
-
-// But Compass recommends that you scope your blueprint styles
-// So that you can better control what pages use blueprint
-// when stylesheets are concatenated together.
-@include blueprint-scaffolding("body.bp");
-
-body.bp {
-  @include blueprint-typography(true);
-  @include blueprint-utilities;
-  @include blueprint-debug;
-  @include blueprint-interaction;
-  // Remove the scaffolding when you're ready to start doing visual design.
-  // Or leave it in if you're happy with how blueprint looks out-of-the-box
+body {
+	margin:0;
+	padding:0;
+	font-family:"Paperback6Roman",georgia, "times new roman", serif;
+	text-align:left;
+	font-size:.8em;
+	color:#222;
+	background-color:#f3f2ee;
 }
 
-form.bp {
-  @include blueprint-form; }
+h1 {
+	font-family:"Neutraface2TextBold",helvetica,arial,sans-serif;
+	font-weight:normal;
+	font-size:8em;
+	padding:0;
+	margin:0;
+}
 
-// Page layout can be done using mixins applied to your semantic classes and IDs:
-body.two-col {
-  #container {
-    @include container; }
-  #header, #footer {
-    @include column($blueprint-grid-columns); }
-  #sidebar {
-    // One third of the grid columns, rounding down. With 24 cols, this is 8.
-    $sidebar-columns: floor($blueprint-grid-columns / 3);
-    @include column($sidebar-columns); }
-  #content {
-    // Two thirds of the grid columns, rounding up.
-    // With 24 cols, this is 16.
-    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
-    // true means it's the last column in the row
-    @include column($content-columns, true); } }
+h2 {
+	font-family:"Neutraface2TextBold",helvetica,arial,sans-serif;
+	font-weight:normal;
+	font-size:1.6em;
+	padding:0;
+	margin:1em 0 0;
+	line-height:1em;
+}
+
+h3 {
+	font-family:"Neutraface2TextDemi",helvetica,arial,sans-serif;
+	text-transform:uppercase;
+	font-size:1em;
+	color:#26aa89;
+	margin:0;
+	padding:0;
+	font-weight:normal;
+	a {
+		color:#26aa89;
+		text-decoration:none;
+		&:hover {text-decoration:underline;}	
+	}
+}
+
+h4 {
+	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+	font-size:1em;
+	text-transform: lowercase;
+	margin:0;
+	padding:0;
+	font-weight:normal;
+	a {
+		color:#222;
+		text-decoration:none;
+		&:hover {text-decoration:underline;}
+	}
+}
+
+p {
+	margin:0;
+	padding:0;
+	font-size:.9em;
+	font-weight:normal;
+}
+
+#wrapper {
+	width:1020px;
+	margin:30px auto 0;
+	background-color:#FFF;
+	border:1px solid #e0dbc7;
+	#main {
+		width:980px;
+		margin:0 20px 40px;
+		position:relative;
+	}
+}
+
+#color-accent {
+	height:8px;
+	width:100%;
+	background-color:#92d4c4;
+}
+
+#header {
+	border-bottom:3px double #999;
+	overflow:hidden;
+	padding-top:15px;
+	#logo a {
+		background:url('/images/logo.png') no-repeat;
+		width:322px;
+		height:31px;
+		display:block;
+		float:left;
+		padding-bottom:15px;
+		text-indent:-9999px;
+	}
+}
+
+nav#primary {
+	position:absolute;
+	top:-25px;
+	right:-80px;
+	z-index:1;
+	ul{
+		padding:0;
+		margin:0;
+		li {
+			display:inline-block;
+			margin:0;
+			&:hover{
+				background-color:#e0dbc7;
+				@include border-radius(5px);
+			}
+			a {
+				display:inline-block;
+				padding:3px 5px 3px;
+				color:#b2ad9a;
+				&:hover {text-decoration:none; color:#333;}
+			}
+		}
+	}
+}
+
+#feature{
+	position:relative;
+	#issue {
+		border-bottom:3px double #999;
+		padding:10px 0 20px;
+		position:relative;
+		.info {
+			width:750px;
+			text-align:center;
+			.cta {
+				font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+				margin:.5em 0 0;
+				padding:0;
+				list-style:none;
+				li {
+					margin:0 .5em 0 0;
+					padding:0;
+					display:inline;
+					a {
+						color:#26aa89;
+						&:hover {color:#333;}				
+					}
+				}
+			}
+		}
+	}
+	img {
+		position:absolute;
+		left:720px;
+		top:-45px;
+		z-index:2;
+	}
+}
+
+#content {
+	width:100%;
+	overflow:hidden;
+	header {
+		border-bottom:1px solid #999;
+		overflow:hidden;
+		padding:.7em 0;
+		height:15px;
+		h3 {float:left;}
+		.nav {
+			float:right;
+			h4 {
+				display:inline;
+				margin-left:.7em;
+			}
+		}
+	}
+	section {
+		float:left; 
+		margin-right:20px;
+	}
+	#main-content {width:480px;}
+	#secondary-content {width:230px;}
+}
+
+.drawer {
+	border-bottom:1px solid #999;
+	padding: 10px 0;
+	overflow:hidden;
+	position:relative;
+	ul {
+		margin:0 20px 0 0;
+		padding:0;
+		list-style:none;
+		width:105px;
+		float:left;
+		&:last-child {margin:0;}
+		a {
+			font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+			display:inline;
+			margin:0;
+			padding:0;
+			text-decoration:none;
+			color:#26aa89;
+			&:hover {color:#222;}
+		}
+	}
+	.close {
+		position:absolute;
+		top:5px;
+		right:5px;
+		color:#222;
+		text-decoration:none;
+		&:hover {text-decoration:underline;}
+	}
+}
+
+.post { 
+	@include column-count(2);
+	@include column-gap(20px);
+	border-bottom:1px solid #999;
+	padding-bottom:1em;
+	.byline {
+		color:#26aa89;
+		font-weight:normal;
+		font-size:1em;
+		margin:.2em 0;
+		padding:0;
+		.date {font-family:"Neutraface2TextLight",helvetica,arial,sans-serif; text-transform:lowercase;}
+		.tags {
+			font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+			display:inline;
+			margin:0;
+			padding:0;
+			li {
+				display:inline;
+				margin:0 .3em 0 0;
+				padding:0;
+				a {
+					display:inline;
+					margin:0;
+					padding:0;
+					text-decoration:none;
+					color:#26aa89;
+					&:hover {text-decoration:underline;}
+				}
+			}
+		}
+	}
+	p {
+		padding-top:10px;
+	}
+}
+
+nav {
+	width:230px;
+	float:right;
+	ul {
+		margin:5px 0 15px;
+		padding:0;
+		list-style:none;
+		li {
+			font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+			text-transform:lowercase;
+			font-size:1em;
+			margin:0;
+			padding:0;
+			font-weight:normal;
+			a {
+				color:#222;
+				text-decoration:none;
+				&:hover {text-decoration:underline;}
+			}
+		}
+	}
+}
+
+footer {
+	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+	font-size:1.1em;
+	text-transform:lowercase;
+	width:980px;
+	margin:10px auto 20px;
+	background-color:#FFF;
+	border:1px solid #e0dbc7;
+	padding:8px 20px;
+	z-index:-1;
+	overflow:hidden;
+	p {
+		color:#b2ad9a;
+		float:right;
+	}
+}
+
+.hide {
+	display:none;
+}
