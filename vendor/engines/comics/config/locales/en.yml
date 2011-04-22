@@ -1,0 +1,25 @@
+en:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    comics:
+      title: Comics
+  admin:
+    comics:
+      actions:
+        create_new: Add New Comic
+        reorder: Reorder Comics
+        reorder_done: Done Reordering Comics
+      records:
+        title: Comics
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no Comics yet. Click "Add New Comic" to add your first comic.
+      comic:
+        view_live_html: View this comic live <br/><em>(opens in a new window)</em>
+        edit: Edit this comic
+        delete: Remove this comic forever
+  comics:
+    show:
+      other: Other Comics

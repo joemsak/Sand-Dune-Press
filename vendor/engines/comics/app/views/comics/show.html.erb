@@ -1,0 +1,39 @@
+<% content_for :body_content_title do %>
+  <%= @comic.title %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  <section>
+    <h1>Title</h1>
+    <p>
+      <%=raw @comic.title %>
+    </p>
+  </section>
+  <section>
+    <h1>Body</h1>
+    <p>
+      <%=raw @comic.body %>
+    </p>
+  </section>
+  <section>
+    <h1>Header Image</h1>
+    <p>
+      <%= image_fu @comic.header_image, nil %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="comics">
+      <% @comics.each do |comic| %>
+        <li>
+          <%= link_to comic.title, comic_url(comic) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>

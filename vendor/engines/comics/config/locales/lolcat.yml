@@ -1,0 +1,25 @@
+lolcat:
+  shared:
+    admin:
+      image_picker:
+        image: IMAGE
+  plugins:
+    comics:
+      title: Comics
+  admin:
+    comics:
+      actions:
+        create_new: CREATE NEW Comic
+        reorder: REORDR Comics
+        reorder_done: DUN REORDERIN Comics
+      records:
+        title: Comics
+        sorry_no_results: SRY! THAR R NO RESULTS FINDZ.
+        no_items_yet: THAR R NO Comics YET. CLICK "CREATE NEW Comic" 2 ADD UR FURST comic.
+      comic:
+        view_live_html: VIEW DIS comic LIV <BR/><EM>(OPENS IN NEW WINDOW)</EM>
+        edit: EDIT DIS comic
+        delete: REMOOV DIS comic FOREVR
+  comics:
+    show:
+      other: OTHR Comics

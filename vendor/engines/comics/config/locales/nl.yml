@@ -1,0 +1,21 @@
+nl:
+  plugins:
+    comics:
+      title: Comics
+  admin:
+    comics:
+      actions:
+        create_new: Maak een nieuwe Comic
+        reorder: Wijzig de volgorde van de Comics
+        reorder_done: Klaar met het wijzingen van de volgorde van de Comics
+      records:
+        title: Comics
+        sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+        no_items_yet: Er zijn nog geen Comics. Druk op 'Maak een nieuwe Comic' om de eerste aan te maken.
+      comic:
+        view_live_html: Bekijk deze comic op de website <br/><em>(opent een nieuw venster)</em>
+        edit: Bewerk deze comic
+        delete: Verwijder deze comic voor eeuwig
+  comics:
+    show:
+      other: Andere Comics

@@ -1,0 +1,21 @@
+nb:
+  plugins:
+    comics:
+      title: Comics
+  admin:
+    comics:
+      actions:
+        create_new: Lag en ny Comic
+        reorder: Endre rekkefølgen på Comics
+        reorder_done: Ferdig å endre rekkefølgen Comics
+      records:
+        title: Comics
+        sorry_no_results: Beklager! Vi fant ikke noen resultater.
+        no_items_yet: Det er ingen Comics enda. Klikk på "Lag en ny Comic" for å legge til din første comic.
+      comic:
+        view_live_html: Vis hvordan denne comic ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+        edit: Rediger denne comic
+        delete: Fjern denne comic permanent
+  comics:
+    show:
+      other: Andre Comics
