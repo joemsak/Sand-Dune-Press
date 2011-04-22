@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110422011807) do
+ActiveRecord::Schema.define(:version => 20110422012512) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(:version => 20110422011807) do
   end
 
   add_index "blog_posts", ["id"], :name => "index_blog_posts_on_id"
+
+  create_table "comic_pages", :force => true do |t|
+    t.string   "image_uid"
+    t.integer  "comic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comics", :force => true do |t|
     t.string   "title"
