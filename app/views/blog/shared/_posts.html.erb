@@ -1,5 +1,7 @@
 <% if @blog_posts.many? %>
-  <h2><%= t('.other') %></h2>
+  <header class="nav-header">
+  	<h3><%= t('.other') %></h3>
+  </header>
   <ul id="blog_posts">
     <% @blog_posts.each do |blog_post| %>
       <li class='clearfix'>

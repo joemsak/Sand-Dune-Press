@@ -1,6 +1,6 @@
 Sanddunepress::Application.routes.draw do
 	root :to => "blog/posts#index"
-
+	get 'portfolio' => 'portfolio#index', :as => 'portfolio_root'
 
 
   # The priority is based upon order of creation:

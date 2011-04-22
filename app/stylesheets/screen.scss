@@ -12,7 +12,7 @@
 body {
 	margin:0;
 	padding:0;
-	font-family:"Paperback6Roman",georgia, "times new roman", serif;
+	font-family:"Paperback6Roman", georgia, "times new roman", serif;
 	text-align:left;
 	font-size:.8em;
 	color:#222;
@@ -32,7 +32,7 @@ h2 {
 	font-weight:normal;
 	font-size:1.6em;
 	padding:0;
-	margin:1em 0 0;
+	margin:.2em 0 0;
 	line-height:1em;
 }
 
@@ -68,7 +68,7 @@ h4 {
 p {
 	margin:0;
 	padding:0;
-	font-size:.9em;
+	font-size:.85em;
 	font-weight:normal;
 }
 
@@ -91,7 +91,6 @@ p {
 }
 
 #header {
-	border-bottom:3px double #999;
 	overflow:hidden;
 	padding-top:15px;
 	#logo a {
@@ -108,54 +107,30 @@ p {
 nav#primary {
 	position:absolute;
 	top:-25px;
-	right:-80px;
+	right:0;
 	z-index:1;
-	ul{
-		padding:0;
-		margin:0;
-		li {
-			display:inline-block;
-			margin:0;
-			&:hover{
-				background-color:#e0dbc7;
-				@include border-radius(5px);
-			}
-			a {
-				display:inline-block;
-				padding:3px 5px 3px;
-				color:#b2ad9a;
-				&:hover {text-decoration:none; color:#333;}
-			}
+	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+	font-size:1em;
+	text-transform: lowercase;
+	a {
+		display:inline-block;
+		padding:3px 5px 3px;
+		color:#b2ad9a;
+		text-decoration:none;
+		&:hover {
+			color:#333;
+			background-color:#e0dbc7;
+			@include border-radius(5px);
 		}
 	}
 }
 
 #feature{
+	border:1px solid #999;
 	position:relative;
-	#issue {
-		border-bottom:3px double #999;
-		padding:10px 0 20px;
-		position:relative;
-		.info {
-			width:750px;
-			text-align:center;
-			.cta {
-				font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
-				margin:.5em 0 0;
-				padding:0;
-				list-style:none;
-				li {
-					margin:0 .5em 0 0;
-					padding:0;
-					display:inline;
-					a {
-						color:#26aa89;
-						&:hover {color:#333;}				
-					}
-				}
-			}
-		}
-	}
+	margin-bottom:20px;
+	@include span(8);
+	height:150px;
 	img {
 		position:absolute;
 		left:720px;
@@ -164,13 +139,15 @@ nav#primary {
 	}
 }
 
-#content {
+#body_content {
+	border-top:3px double #333;
 	width:100%;
-	overflow:hidden;
-	header {
+	 overflow:hidden;
+	.section-header {
 		border-bottom:1px solid #999;
 		overflow:hidden;
 		padding:.7em 0;
+		position:relative;
 		height:15px;
 		h3 {float:left;}
 		.nav {
@@ -180,20 +157,94 @@ nav#primary {
 				margin-left:.7em;
 			}
 		}
+		.pagination {
+			font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+			font-size:1.2em;
+			position:absolute;
+			right:0;
+			top:5px;
+			a{
+				display:inline-block;
+				padding:0 5px 3px;
+				color:#CCC;
+				text-decoration:none;
+				&:hover {
+					color:#333;
+					background-color:#dbdbdb;
+					@include border-radius(5px);
+				}
+			}
+			em {
+				font-weight:bold;
+				padding:0 5px 3px;
+			}
+			.disabled{display:none;}
+		}
 	}
-	section {
-		float:left; 
-		margin-right:20px;
+	#body_content_left {@include column(6);}
+	#body_content_right {
+		@include column(2, true);
 	}
-	#main-content {width:480px;}
-	#secondary-content {width:230px;}
+	#secondary {
+		position:relative;
+		@include column(2, true);
+		.nav-header {
+		border-bottom:1px solid #999;
+		padding:.7em 0;
+		height:15px;
+		}		
+		.post-image {
+			border:1px solid #999;
+			margin:15px 0 10px;
+			width:228px;
+			height:90px;
+			position:relative;
+			img {
+				position:absolute;
+				top:-10px;
+				left:0;
+				width:230px;
+				height:100px;
+			}
+		}
+		ul {
+			margin:5px 0 15px;
+			padding:0;
+			list-style:none;
+			li {
+				font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+				text-transform:lowercase;
+				font-size:1em;
+				margin:0;
+				padding:0;
+				font-weight:normal;
+				a {
+					color:#222;
+					text-decoration:none;
+					&:hover {text-decoration:underline;}
+				}
+			}
+		}
+		#tweet {
+			li {
+				margin-bottom:10px;
+				.tweet_time {
+					display:block;
+				}
+				a {
+					color:#26aa89;
+					&:hover{text-decoration:underline;}				
+				}
+			}
+		}
+	}
 }
 
 .drawer {
-	border-bottom:1px solid #999;
 	padding: 10px 0;
 	overflow:hidden;
 	position:relative;
+	border-bottom:1px solid #999;
 	ul {
 		margin:0 20px 0 0;
 		padding:0;
@@ -212,6 +263,7 @@ nav#primary {
 		}
 	}
 	.close {
+		font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
 		position:absolute;
 		top:5px;
 		right:5px;
@@ -221,30 +273,99 @@ nav#primary {
 	}
 }
 
-.post { 
-	@include column-count(2);
-	@include column-gap(20px);
-	border-bottom:1px solid #999;
-	padding-bottom:1em;
-	.byline {
-		color:#26aa89;
-		font-weight:normal;
-		font-size:1em;
-		margin:.2em 0;
+#posts, #blog_posts {
+	.post { 
+		@include column(2);
 		padding:0;
-		.date {font-family:"Neutraface2TextLight",helvetica,arial,sans-serif; text-transform:lowercase;}
-		.tags {
+		height:430px;
+		z-index:6;
+		&:nth-child(3n+3) {@include column(2, true);}
+		.post-header {
+			position:relative;
+			.post-image {
+				border:1px solid #999;
+				margin:15px 0 10px;
+				width:230px;
+				height:90px;
+				position:relative;
+				img {
+					position:absolute;
+					top:-10px;
+					left:0;
+					width:230px;
+					height:100px;
+				}
+			}
+			h2 a { 
+				color:#222;
+				text-decoration:none;
+				&:hover {text-decoration:underline;}
+			}	
+			.details {
+				color:#26aa89;
+				font-weight:normal;
+				font-size:1.1em;
+				margin:.2em 0;
+				padding:0;
+				.date {font-family:"Neutraface2TextLight",helvetica,arial,sans-serif; text-transform:lowercase;}
+				.tags {
+					font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+					display:inline;
+					margin:0;
+					padding:0;
+					a {
+						display:inline;
+						margin:0 .3em 0 0;
+						padding:0;
+						text-decoration:none;
+						color:#26aa89;
+						&:hover {text-decoration:underline;}
+					}
+				}
+			}
+		}
+		section {
+			margin:0 0 5px;
+			p {
+				padding-top:5px;
+			}
+		}
+		.post-footer .read-more {
 			font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
 			display:inline;
-			margin:0;
+			margin:0 .3em 0 0;
 			padding:0;
-			li {
+			font-size:1.1em;
+			text-transform:lowercase;
+			text-decoration:none;
+			color:#26aa89;
+			&:hover {text-decoration:underline;}
+		}		
+	}
+}
+
+#show_blog_post {
+	@include column(6);
+	h2{ 
+		margin-top:1em;		
+	}	
+	.post-header {
+		position:relative;
+		.details {
+			color:#26aa89;
+			font-weight:normal;
+			font-size:1.1em;
+			margin:.2em 0;
+			padding:0;
+			.date {font-family:"Neutraface2TextLight",helvetica,arial,sans-serif; text-transform:lowercase;}
+			.tags {
+				font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
 				display:inline;
-				margin:0 .3em 0 0;
+				margin:0;
 				padding:0;
 				a {
 					display:inline;
-					margin:0;
+					margin:0 .3em 0 0;
 					padding:0;
 					text-decoration:none;
 					color:#26aa89;
@@ -253,35 +374,40 @@ nav#primary {
 			}
 		}
 	}
-	p {
-		padding-top:10px;
-	}
-}
-
-nav {
-	width:230px;
-	float:right;
-	ul {
-		margin:5px 0 15px;
-		padding:0;
-		list-style:none;
-		li {
-			font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
-			text-transform:lowercase;
-			font-size:1em;
-			margin:0;
-			padding:0;
-			font-weight:normal;
-			a {
-				color:#222;
-				text-decoration:none;
-				&:hover {text-decoration:underline;}
-			}
+	section {
+		margin:0 0 5px;
+		p {
+			padding-top:5px;
+		}
+	}	
+	#next_prev_article {
+		font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+		a { 
+			color:#26aa89;
+			text-decoration:none; 
+			&:hover {text-decoration:underline;}
 		}
 	}
 }
 
-footer {
+#comments {
+	margin:20px 0 0;
+	h3 {
+		margin-bottom:10px;
+	}
+	h4 {
+		color:#26aa89;
+	}
+	#comment-form {
+		font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;		
+		margin-top:20px;
+		padding:20px;
+		background:#efefef;
+		border:1px solid #dbdbdb;	
+	}
+}
+
+#page-footer {
 	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
 	font-size:1.1em;
 	text-transform:lowercase;
@@ -292,9 +418,18 @@ footer {
 	padding:8px 20px;
 	z-index:-1;
 	overflow:hidden;
+	a { 
+		color:#26aa89;
+		text-decoration:none; 
+		&:hover {text-decoration:underline;}
+	}
 	p {
 		color:#b2ad9a;
 		float:right;
+	}
+	#footer-nav {
+		float:left;
+		@include column(3);
 	}
 }
 

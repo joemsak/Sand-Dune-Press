@@ -1,0 +1,28 @@
+<% content_for :body_content_title, @category.title %>
+
+
+<% content_for :body_content_left do %>
+  <% if @category.posts.any? %>
+  <header class="section-header">
+		<h3><%= 'Category: ' + @category.title %></h3>
+	</header>
+  <article id="blog_posts">
+    <%= render :partial => "/blog/shared/post", :collection => @category.posts %>
+  </article>
+  <% else %>
+    <p>
+      <%= t('.no_posts') %>
+    </p>
+  <% end %>
+<% end %>
+
+<% content_for :body_content_right do %>
+	<nav id="secondary">
+		<%= render :partial => "/blog/shared/categories" %>
+		<%= render :partial => "/shared/secondary-nav.html.erb" -%>
+		<%= blog_archive_list %>	
+	</nav>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>
+<% content_for :stylesheets, stylesheet_link_tag('refinerycms-blog') %>

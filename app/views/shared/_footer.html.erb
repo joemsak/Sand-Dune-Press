@@ -1,4 +1,4 @@
-<p>
-  <%= t('.copyright', :year => Time.now.year,
-                      :site_name => RefinerySetting.find_or_set(:site_name, "Company Name")) %>
-</p>
+<nav id="footer-nav">
+	<%= render :partial => "/blog/shared/rss_feed" %>
+</nav>
+<p>2011 <a href="mailto:schnee41@gmail.com">Erik Schneider</a></p>

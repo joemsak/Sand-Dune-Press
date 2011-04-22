@@ -7,6 +7,7 @@ gem 'rails', '3.0.7.rc2'
 
 gem 'sqlite3'
 gem 'refinerycms-blog', '~> 1.3'
+gem 'refinerycms-portfolio', '~> 0.9.9'
 gem 'compass'
 
 # Use unicorn as the web server

@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Neutraface2TextBold';
+    src: url('/fonts/neutra2text-bold-webfont.eot');
+    src: url('/fonts/neutra2text-bold-webfont.eot?#iefix') format('eot'),
+         url('/fonts/neutra2text-bold-webfont.woff') format('woff'),
+         url('/fonts/neutra2text-bold-webfont.ttf') format('truetype'),
+         url('/fonts/neutra2text-bold-webfont.svg#webfontErxlFct8') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Neutraface2TextBoldItalic';
+    src: url('/fonts/neutra2text-bolditalic-webfont.eot');
+    src: url('/fonts/neutra2text-bolditalic-webfont.eot?#iefix') format('eot'),
+         url('/fonts/neutra2text-bolditalic-webfont.woff') format('woff'),
+         url('/fonts/neutra2text-bolditalic-webfont.ttf') format('truetype'),
+         url('/fonts/neutra2text-bolditalic-webfont.svg#webfontMTLVClax') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Neutraface2TextDemi';
+    src: url('/fonts/neutra2text-demi-webfont.eot');
+    src: url('/fonts/neutra2text-demi-webfont.eot?#iefix') format('eot'),
+         url('/fonts/neutra2text-demi-webfont.woff') format('woff'),
+         url('/fonts/neutra2text-demi-webfont.ttf') format('truetype'),
+         url('/fonts/neutra2text-demi-webfont.svg#webfontSszYBNZf') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Neutraface2TextLight';
+    src: url('/fonts/neutra2text-light-webfont.eot');
+    src: url('/fonts/neutra2text-light-webfont.eot?#iefix') format('eot'),
+         url('/fonts/neutra2text-light-webfont.woff') format('woff'),
+         url('/fonts/neutra2text-light-webfont.ttf') format('truetype'),
+         url('/fonts/neutra2text-light-webfont.svg#webfontsejrLQg8') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Paperback6Italic';
+    src: url('/fonts/paperback6-italic-webfont.eot');
+    src: url('/fonts/paperback6-italic-webfont.eot?#iefix') format('eot'),
+         url('/fonts/paperback6-italic-webfont.woff') format('woff'),
+         url('/fonts/paperback6-italic-webfont.ttf') format('truetype'),
+         url('/fonts/paperback6-italic-webfont.svg#webfont0DBlo6Uc') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Paperback6Roman';
+    src: url('/fonts/paperback6-roman-webfont.eot');
+    src: url('/fonts/paperback6-roman-webfont.eot?#iefix') format('eot'),
+         url('/fonts/paperback6-roman-webfont.woff') format('woff'),
+         url('/fonts/paperback6-roman-webfont.ttf') format('truetype'),
+         url('/fonts/paperback6-roman-webfont.svg#webfontk84D0VgF') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Paperback6Bold';
+    src: url('/fonts/paperback6-bold-webfont.eot');
+    src: url('/fonts/paperback6-bold-webfont.eot?#iefix') format('eot'),
+         url('/fonts/paperback6-bold-webfont.woff') format('woff'),
+         url('/fonts/paperback6-bold-webfont.ttf') format('truetype'),
+         url('/fonts/paperback6-bold-webfont.svg#webfontpyaI5CL9') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

@@ -1,0 +1,20 @@
+<% content_for :body_content_left do -%>
+
+
+<% content_for :body_content_right do -%>
+	<nav id="secondary">
+		<header class="section-header">
+			<h3>Projects</h3>
+		</header>
+		<ul>
+		<% @portfolio_entries.each do | portfolio | -%>
+			<li>
+				<%= link_to raw("#{image_fu portfolio.title_image, '200x200' unless portfolio.title_image.nil?} #{portfolio.title}"),
+										portfolio_path(portfolio) %>
+			</li>
+		<% end -%>
+		</ul>
+  </nav>
+<% end -%>
+
+<%= render :partial => '/shared/content_page' -%>
