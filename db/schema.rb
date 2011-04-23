@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110422012657) do
+ActiveRecord::Schema.define(:version => 20110422235632) do
 
   create_table "blog_categories", :force => true do |t|
     t.string   "title"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20110422012657) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "image_id"
   end
 
   add_index "comics", ["id"], :name => "index_comics_on_id"

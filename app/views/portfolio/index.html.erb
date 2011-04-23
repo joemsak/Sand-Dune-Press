@@ -1,5 +1,20 @@
 <% content_for :body_content_left do -%>
-	hi!
+	<section id="portfolio">
+		<% portfolio = @portfolio_entries.first -%>
+		<header class="section-header">
+			<h3><%= portfolio.title %></h3>
+		</header>
+		<div id='portfolio_main_image_container'>
+			<%= render :partial => "main_image" %>
+		</div>
+		<ul id='portfolio_images'>
+			<% portfolio.images.each_with_index do |image, index| %>
+				<li class="<%= cycle('odd', 'even') %> #{index == params[:image_id].to_i) ? 'selected' : 'other'}">
+					<%= link_to_portfolio_image(@master_entry, portfolio, image, index) %>
+				</li>
+			<% end %>
+		</ul>
+	</section>
 <% end -%>
 
 <% content_for :body_content_right do -%>
@@ -9,7 +24,7 @@
 		</header>
 		<ul>
 		<% @portfolio_entries.each do | portfolio | -%>
-			<li>
+			<li class="portfolio-project <% if portfolio == @portfolio_entries.first -%> selected <% end -%> ">
 				<%= link_to raw("#{image_fu portfolio.title_image, '200x200' unless portfolio.title_image.nil?} #{portfolio.title}"),
 										portfolio_path(portfolio) %>
 			</li>
@@ -19,3 +34,14 @@
 <% end -%>
 
 <%= render :partial => '/shared/content_page' -%>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag('portfolio') %>
+  <%# remove the jquery_include_tags call if jquery is included in your layout.
+  %>
+  <%= jquery_include_tags(:include_ui => false) %>
+  <%= javascript_include_tag 'portfolio' %>
+  <script type='text/javascript'>
+    var portfolio_entry_url = "<%= portfolio_project_url(@master_entry, @portfolio_entry) if ::Refinery::Portfolio.multi_level? %>";
+  </script>
+<% end %>

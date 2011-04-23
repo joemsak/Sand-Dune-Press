@@ -10,20 +10,37 @@
 <% end %>
 
 <% content_for :body_content_left do %>
-  <div id='portfolio_main_image_container'>
-    <%= render :partial => "main_image" %>
-  </div>
+	<section id="portfolio">
+		<header class="section-header">
+			<h3><%= @portfolio_entry.title %></h3>
+		</header>
+		<div id='portfolio_main_image_container'>
+			<%= render :partial => "main_image" %>
+		</div>
+		<ul id='portfolio_images'>
+			<% @portfolio_entry.images.each_with_index do |image, index| %>
+				<li class="<%= cycle('odd', 'even') %> #{index == params[:image_id].to_i) ? 'selected' : 'other'}">
+					<%= link_to_portfolio_image(@master_entry, @portfolio_entry, image, index) %>
+				</li>
+			<% end %>
+		</ul>
+  </section>
 <% end %>
 
 <% content_for :body_content_right do %>
-  <h2><%= @portfolio_entry.title %></h2>
-  <ul id='portfolio_images'>
-    <% @portfolio_entry.images.each_with_index do |image, index| %>
-      <li class="<%= cycle('odd', 'even') %> #{index == params[:image_id].to_i) ? 'selected' : 'other'}">
-        <%= link_to_portfolio_image(@master_entry, @portfolio_entry, image, index) %>
-      </li>
-    <% end %>
-  </ul>
+	<nav id="secondary">
+		<header class="section-header">
+			<h3>Projects</h3>
+		</header>
+		<ul>
+		<% @portfolio_entries.each do | portfolio | -%>
+			<li <%= "class='selected'" if @master_entry == portfolio %>>
+				<%= link_to raw("#{image_fu portfolio.title_image, '200x200' unless portfolio.title_image.nil?} #{portfolio.title}"),
+										portfolio_path(portfolio) %>
+			</li>
+		<% end -%>
+		</ul>
+  </nav>
 <% end %>
 
 <div class='portfolio'>

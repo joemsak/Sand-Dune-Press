@@ -1,0 +1,44 @@
+<% content_for :body_content_left do %>
+  <%=raw @page[Page.default_parts.first.to_sym] if Page.default_parts.any? %>
+	<section id="articles">
+		<header class="section-header">
+			<h3><%= link_to 'Articles', blog_root_path %></h3>
+			<nav><h4><%= link_to 'All Articles', blog_root_path %></h4></nav>
+		</header>
+		<% if @blog_posts.any? %>
+			<article id="posts">
+				<%= render :partial => "/blog/shared/post", :collection => @blog_posts %>
+			</article>
+		<% else %>
+			<p><%= t('.no_blog_articles_yet') %></p>
+		<% end %>
+  </section>
+  <section id="home-comics">
+		<header class="section-header">
+			<h3><%= link_to 'Comics', comics_path %></h3>	
+			<nav><h4><%= link_to 'All Comics', comics_path %></h4></nav>
+		</header>
+		<section id="comics">
+			<%= render :partial => "/comics/comic_index", :collection => @comics, :as => :comic %>
+		</section>
+  </section>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <%=raw @page[Page.default_parts.second.to_sym] if Page.default_parts.many? %>
+	<nav id="secondary">
+		<header class="nav-header">
+			<h3>Updates</h3>
+		</header>
+		<div id="tweet"></div>
+  	<%= render :partial => "/blog/shared/categories" %>
+		<%= render :partial => "/shared/secondary-nav.html.erb" -%>
+	</nav>
+<% end %>
+
+
+<%= render :partial => "/shared/feature" %>
+<div id="home">
+<%= render :partial => "/shared/content_page" %>
+</div>
+<% content_for :stylesheets, stylesheet_link_tag('refinerycms-blog') %>

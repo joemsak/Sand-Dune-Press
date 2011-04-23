@@ -1,0 +1,35 @@
+<% if comic == @comics.first -%>
+	<article class="post" id="<%= dom_id(comic) %>">
+			<header class="post-header">
+      <% unless comic.image.blank? %>
+      	<% comic_image = image_fu comic.image, '230x100>' %>
+      	<div class="post-image"><%= link_to comic_image, comic_url(comic)%></div>
+      <% else %>
+      	<% comic_image = image_tag 'placeholder.png' %>
+      	<div class="post-image"><%= link_to comic_image, comic_url(comic)%></div>
+      <% end %>
+      <h2><%= link_to comic.title, comic_url(comic) %></h2>
+			</header>
+			<section class='clearfix'>      
+				<%= truncate(comic.body,
+										 :length => RefinerySetting.find_or_set(:blog_post_teaser_length, 250),
+										 :preserve_html_tags => true,
+				) %>
+			</section>
+			<footer class="post-footer">		
+			</footer>
+	</article>
+	<div class="more"><h3><%= link_to 'More Comics', comics_path %></h3></div>
+<% else -%>		
+	<article class="post" id="<%= dom_id(comic) %>">
+		<header class="post-header">
+			<h2><%= link_to comic.title, comic_url(comic) %></h2>
+		</header>
+		<section class='clearfix'>      
+			<%= truncate(comic.body,
+									 :length => 120,
+									 :preserve_html_tags => true,
+			) %>
+		</section>
+	</article>
+<% end -%>

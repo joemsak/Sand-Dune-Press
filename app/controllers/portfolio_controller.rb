@@ -8,7 +8,30 @@ class PortfolioController < ApplicationController
         redirect_to portfolio_url(first_entry)
       end
     else
-      @portfolio_entries = PortfolioEntry.all
+      begin
+      @master_entry = if params[:id]
+        PortfolioEntry.find(params[:id])
+      else
+        PortfolioEntry.where(:parent_id => nil).first
+      end
+
+      if ::Refinery::Portfolio.multi_level?
+        multi_level
+      else
+        single_level
+      end
+
+      begin
+        image_index = (params[:image_id].presence || '0').to_i
+        @image = @portfolio_entry.images[image_index]
+      rescue
+        render :action => "empty"
+      end
+    rescue
+      error_404
+    end
+
+    render :partial => "main_image", :layout => false if request.xhr?
     end
   end
 

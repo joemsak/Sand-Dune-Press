@@ -1,0 +1,19 @@
+<% content_for :body_content_left do %>
+	<header class="section-header">
+		<h3>Comics</h3>
+	</header>
+		<section id="comics">
+			<%= render :partial => "/comics/comic", :collection => @comics %>
+		</section>
+	<% end %>
+<% content_for :body_content_right do %>
+  <nav id="secondary">
+		<header class="nav-header">
+			<h3>Updates</h3>
+		</header>
+		<div id="tweet"></div>
+		<%= render :partial => "/shared/secondary-nav.html.erb" -%>
+  </nav>
+<% end %>
+
+<%= render :partial => "/shared/content_page" %>

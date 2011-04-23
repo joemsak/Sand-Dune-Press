@@ -1,0 +1,82 @@
+<% flash.each do |key, value| %>
+ <div id='flash' class="flash flash_<%= key %>">
+   <%= value %>
+ </div>
+<% end %>
+<article id="blog_post">
+  <header class="post-header">
+    <h2><%= @blog_post.title %></h2>
+  	<div class="details">
+      <time datetime="<%=l @blog_post.published_at.to_date, :format => :default %>" class='date'>
+        <%= l(@blog_post.published_at.to_date, :format => :long) %>
+      </time>
+      <% if (categories = @blog_post.categories).any? %>
+        <aside class='tags'>
+        	-
+          <% categories.each_with_index do |category, index| %>
+              <%= link_to category.title, blog_category_url(category) -%><%= ',' if index < ((categories.length) - 1) %>
+          <% end %>
+        </aside>
+      <% end %>
+    </div>
+  </header>
+  <section>
+  <%= @blog_post.body.html_safe %>
+
+  <% if BlogPost::ShareThis.enabled? %>
+    <span class="st_sharethis" displayText="ShareThis"></span>
+  <% end %>
+  </section>
+  <footer>
+		<% if BlogPost.comments_allowed? %>
+			<aside id="comments">
+				<div id="comment-list">
+					<h3>Comments</h3>
+					<% if (comments = @blog_post.comments.approved).any? %>
+						<%= render :partial => "comment", :collection => comments %>
+					<% else %>
+						<p>
+							<%= t('blog.shared.comments.none') %>.
+						</p>
+					<% end %>
+				</div>
+				
+				<div id="comment-form">
+					<% flash.each do |key, value| %>
+						<div id='flash' class="flash flash_<%= key %>">
+							<%= value %>
+						</div>
+					<% end %>
+					
+					<h3>Add a Comment</h3>
+					<%= form_for [:blog_post, @blog_comment] do |f| %>
+						<%= render :partial => "/shared/admin/error_messages",
+											 :locals => {
+												 :object => f.object,
+												 :include_object_name => true
+											 } %>
+						<div class='field'>
+							<%= f.label :name %>
+							<%= f.text_field :name %>
+						</div>
+						<div class='field'>
+							<%= f.label :email %>
+							<%= f.email_field :email %>
+						</div>
+						<div class='field message_field'>
+							<%= f.label :message %>
+							<%= f.text_area :message, :rows => 6 %>
+						</div>
+						<div class='field form-actions'>
+							<%= f.submit 'Submit' %>
+						</div>
+					<% end %>
+				</div>
+			</aside>
+		<% end %>
+	</footer>
+</article>
+<%= render :partial => '/shared/draft_page_message' unless @blog_post.nil? or @blog_post.live? -%>
+<% if next_or_previous?(@blog_post) -%>
+  <%= render 'nav' %>
+<% end -%>
