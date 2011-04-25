@@ -3,25 +3,31 @@
 <% end %>
 
 <% content_for :body_content_left do %>
-  <header class="section-header">
-    <h3><%= @comic.title %></h3>
-  </header>
-  <section>
-    <%= @comic.body.html_safe %>
+  <section id="show_comic">
+		<header class="comic-header">
+			<h2><%= @comic.title %></h2>
+		</header>
+		<section>
+			<%= @comic.body.html_safe %>
+		</section>
   </section>
 <% end %>
 
 <% content_for :body_content_right do %>
-  <aside>
-    <h2><%= t('.other') %></h2>
-    <ul id="comics">
+  <nav id="secondary">
+    <header class="nav-header">
+    	<h3><%= t('.other') %></h3>
+    </header>
+    <ul>
       <% @comics.each do |comic| %>
-        <li>
+        <li <%= "class='selected'" if @comic == comic %>>
           <%= link_to comic.title, comic_url(comic) %>
         </li>
       <% end %>
     </ul>
-  </aside>
+    <%= render :partial => "/shared/secondary-nav.html.erb" -%>
+  </nav>
 <% end %>
 
+<%= render :partial => "/comics/comic_pages", :local => { :comic => @comic } %>
 <%= render :partial => "/shared/content_page" %>

@@ -10,4 +10,9 @@ $(document).ready(function() {
 		return false;
 	});
 	$('.not-yet').css('text-decoration', 'line-through');
+	
+	$('#comic-nav a').click(function() {
+		alert($(this).attr('class'));
+		return false;
+	});
 });

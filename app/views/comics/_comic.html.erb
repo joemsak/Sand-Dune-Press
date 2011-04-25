@@ -1,4 +1,4 @@
-<article class="post" id="<%= dom_id(comic) %>">
+<article class="comic-post" id="<%= dom_id(comic) %>">
 		<header class="post-header">
       <% unless comic.image.blank? %>
       	<% comic_image = image_fu comic.image, '230x100>' %>
@@ -11,10 +11,11 @@
 		</header>
 		<section class='clearfix'>      
 			<%= truncate(comic.body,
-									 :length => RefinerySetting.find_or_set(:blog_post_teaser_length, 250),
+									 :length => 500,
 									 :preserve_html_tags => true,
 			) %>
 		</section>
-		<footer class="post-footer">		
+		<footer class="post-footer">	
+      <%= link_to 'read comic', comic_url(comic), :class => 'read-more' %>
 		</footer>
 </article>

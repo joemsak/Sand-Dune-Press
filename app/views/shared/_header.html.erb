@@ -2,9 +2,11 @@
   <%= link_to RefinerySetting.find_or_set(:site_name, "Company Name"), root_path %>
 </h1>
 <nav id="primary">
-  <%= link_to 'Home', root_path %>
-  <%= link_to 'Articles', blog_root_path %>
-  <%= link_to 'Comics', comics_path %>
-  <%= link_to 'Portfolio', portfolio_root_path %>
+	
+
+  <%= link_to 'Home', root_path, :class => "#{ 'current-page' if request.path == '/' }" %>
+  <%= link_to 'Articles', blog_root_path, :class => "#{ 'current-page' if request.path.first(5) == '/blog' }"  %>
+  <%= link_to 'Comics', comics_path, :class => "#{ 'current-page' if request.path.first(7) == '/comics' }"  %>
+  <%= link_to 'Portfolio', portfolio_root_path, :class => "#{ 'current-page' if request.path.first(10) == '/portfolio' }"  %>
 	<a href="#" class="not-yet">Store</a>
 </nav>

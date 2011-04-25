@@ -55,10 +55,232 @@
                 :delete_confirmation => t('message', :scope => 'shared.admin.delete', :title => @comic.title)
               } %>
 <% end -%>
-<% content_for :javascripts do %>
-  <script>
-    $(document).ready(function(){
-      page_options.init(false, '', '');
-    });
-  </script>
-<% end %>
+
+  <% if @comic.persisted? -%>
+    <div id="comic_pages">
+      <ul id="sortable">
+        <%= render :partial => 'comic_page', :collection => @comic.comic_pages %>
+      </ul>
+
+      <h2>Add Comic Pages:</h2>
+      <button id="image_browse">Browse</button>
+      <ul id="image_queue"></ul>
+
+      <% content_for :stylesheets do -%>
+        <style type="text/css">
+          #image_queue, #sortable{
+            overflow:hidden;
+            padding:0;
+            margin:10px 0;
+            list-style:none;
+          }
+          #image_queue li, #sortable li{
+            list-style:none;
+            position:relative;
+          }
+          .comic_page{
+            float:left;
+            border:1px solid #ccc;
+            margin:5px;
+            text-align:center;
+            padding:10px;
+            height:150px;
+            width:150px;
+          }
+          .comic_page .stuff{
+            margin:0;
+            position:absolute;
+            bottom:5px;
+            text-align:center;
+            width:100%;
+          }
+          .progress{
+            display:block;
+            width:150px;
+            height:11px;
+            position:relative;
+            overflow:hidden;
+          }
+          .progress.started{
+            background:url(/images/progress_bar.gif) no-repeat -7px -4px;
+            border:1px solid #9ebcfc;
+          }
+          .actual_progress{
+            width:0;
+            height:11px;
+            background:#9ebcfc;
+          }
+          .error{
+            color:#f00;
+            font-weight:bold;
+          }
+          #sortable li .handle {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            z-index: 5;
+            width: 16px;
+            height: 16px;
+            padding: 2px;
+            background: #fff url(/images/sort.png) center center no-repeat;
+            border-radius: 10px;
+          	-moz-border-radius: 10px;
+          }
+          #sortable li:hover .handle {
+            background-color: #cef0d3;
+          }
+        </style>
+      <% end -%>
+
+      <% content_for :javascripts do -%>
+        <%= javascript_include_tag 'swfupload' %>
+        <script>
+
+           $('#sortable').sortable({ 
+              opacity: 0.8,
+              revert: true,
+              cursor: 'move',
+              handle: '.handle',
+              update: function(event, ui) {
+                serialize = $('#sortable').sortable('serialize')
+          			$.post('<%= admin_update_comic_page_positions_path(@comic.id) %>?' + serialize)
+              }
+
+            })
+
+            $('#sortable').disableSelection()
+
+          var imageUploadStart = function(file){
+            dom_id = '#'+file.id
+            $(dom_id).find('.progress').addClass('started')
+          }
+
+          var imageUploadProgress = function(file, bytesComplete, totalBytes){
+            dom_id = '#'+file.id
+            progress = bytesComplete/totalBytes*100
+            $(dom_id).find('.actual_progress').css('width',progress+'%')
+          }
+
+          var imageUploadError = function(file, errorCode, message){
+            if(errorCode == '-280'){
+              return false
+            } else {
+              dom_id = '#' + file.id
+              $(dom_id).find('.progress')
+                .css({
+                  background: 'none',
+                  border: 0,
+                  height: '15px'
+                })
+                .html('\
+                  <span class="error">\
+                    I am Error.</span>\
+                ')
+                
+              swfu.startUpload()
+            }
+          }
+
+          var imageUploadComplete = function(){
+            $('.form-actions').fadeIn()
+          }
+
+          var imageUploadSuccess = function (file, server_data, receivedResponse) {
+          	dom_id = '#' + file.id
+          	$(dom_id).remove()
+          	$('#sortable').append(server_data)
+          	swfu.startUpload()
+          };
+
+          var imageFileDialogComplete = function(){
+            if($('#start_upload').length == 0){
+              $('#image_queue').after('<button id="start_upload">Start Upload</button> <a href="#" id="cancel_swfupload">or cancel</a>')
+              $('.form-actions').hide()
+            }
+          }
+
+          var imageFileQueued = function(file){
+            $('#image_queue').append('\
+              <li class="comic_page" id="'+ file.id +'">\
+                <p class="file_name">'+ file.name +'</p>\
+                <span class="progress">\
+                  <span class="actual_progress"></span>\
+                </span>\
+              </li>')
+          }
+
+          var imageFileQueueError = function(file, errorCode, message){
+            alert("The file " + file.name + " could not be queued. " + message)
+          }
+
+          var swfu;
+
+          window.onload = function () {
+          	var settings = {
+          	  post_params : {
+          	    authenticity_token : $('input[name=authenticity_token]').val(),
+          	    "utf-8" : $('input[name=utf8]').val()
+          	  },
+
+          		upload_url : "<%= admin_comic_comic_pages_upload_url(@comic) %>",
+          		flash_url : "/flash/swfupload.swf",
+          		file_size_limit : "3 MB",
+
+              button_placeholder_id : "image_browse",
+              button_image_url : '/images/browse-for-images.jpg',
+              button_width : 142,
+              button_height : 22,
+            	button_text : "",
+            	button_text_style : '',
+            	button_text_left_padding : 10,
+            	button_text_top_padding : 5,
+            	button_action : SWFUpload.BUTTON_ACTION.SELECT_FILES,
+            	button_disabled : false,
+            	button_cursor : SWFUpload.CURSOR.HAND,
+            	button_window_mode : SWFUpload.WINDOW_MODE.TRANSPARENT,
+
+            	file_queued_handler : imageFileQueued,
+            	file_queue_error_handler : imageFileQueueError,
+            	file_dialog_complete_handler : imageFileDialogComplete,
+            	upload_start_handler : imageUploadStart,
+            	upload_progress_handler : imageUploadProgress,
+            	upload_error_handler : imageUploadError,
+            	upload_success_handler : imageUploadSuccess,
+            	upload_complete_handler : imageUploadComplete,
+
+            	custom_settings: {
+      					progressTarget: "#image_queue",
+      					uploadButtonId: "#start_upload" 
+      				},
+
+      				debug : false
+          	};
+
+          	swfu = new SWFUpload(settings)
+          };
+
+          $('#start_upload').live('click',function() { 
+            swfu.startUpload()
+            return false;
+          })
+
+          $('#cancel_swfupload').live('click',function(){
+            answer = confirm('Are you sure?')
+            if(answer){
+              $('#image_queue .image').add('#start_upload').add(this).remove()
+
+              var file_count = swfu.getStats().files_queued
+              for (var i=0; i < file_count; i++) {
+                swfu.cancelUpload()
+              }
+
+              $('.form-actions').fadeIn()
+            }
+            return false;
+          })
+        </script>
+      <% end -%>
+      
+    </div>
+    
+<% end -%>

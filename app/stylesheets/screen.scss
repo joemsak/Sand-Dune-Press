@@ -123,6 +123,11 @@ nav#primary {
 			@include border-radius(5px);
 		}
 	}
+	.current-page {
+		color:#333;
+		background-color:#e0dbc7;
+		@include border-radius(5px);
+	}
 }
 
 #feature{
@@ -250,7 +255,49 @@ nav#primary {
 	}
 	#home-comics {
 		@include column(2, true);
-		#comics {@include column(2);}
+		#comics {
+			@include column(2); 
+			height:auto;
+			.post-header {
+				position:relative;
+				.post-image {
+					border:1px solid #999;
+					margin:15px 0 10px;
+					width:230px;
+					height:90px;
+					position:relative;
+					img {
+						position:absolute;
+						top:-10px;
+						left:0;
+						width:230px;
+						height:100px;
+					}
+				}
+				h2 a { 
+					color:#222;
+					text-decoration:none;
+					&:hover {text-decoration:underline;}
+				}
+			}
+			section {
+				margin:0 0 2px;
+				p {
+					padding-top:5px;
+				}
+			}
+			.post-footer .read-more {
+				font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+				display:inline-block;
+				margin:0 0 .6em 0;
+				padding:0;
+				font-size:1.1em;
+				text-transform:lowercase;
+				text-decoration:none;
+				color:#26aa89;
+				&:hover {text-decoration:underline;}
+			}	
+		}
 		.more {
 			clear:both;
 			border-bottom:1px solid #999;
@@ -334,9 +381,10 @@ nav#primary {
 
 #comics {
 	@include column(6);
-	.post { 
+	.comic-post { 
 		@include column(2);
 		padding:0;
+		height:325px;
 		z-index:6;
 		&:nth-child(3n+3) {@include column(2, true);}
 		.post-header {
@@ -427,6 +475,40 @@ nav#primary {
 		}
 	}
 }
+
+#show_comic {
+	@include column(6);
+	h2{ 
+		margin-top:1em;		
+	}	
+	.comic-header {
+		position:relative;
+	}
+	section {
+		margin:0 0 5px;
+		p {
+			padding-top:5px;
+		}
+	}	
+}
+
+#comic-page {
+	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+	@include column(8);
+	margin-bottom:10px;
+	position:relative;
+	#comic-nav {
+		position:absolute;
+		top:-50px;
+		right:20px;
+	}
+	.page {
+		display:none;
+		margin:auto;
+	}
+	.show {display:block;}
+}
+
 
 #comments {
 	margin:20px 0 0;

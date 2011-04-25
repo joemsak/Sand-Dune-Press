@@ -1,6 +1,6 @@
-class ComicsController < ApplicationController
+class ComicPagesController < ApplicationController
 
-  before_filter :find_all_comics
+  before_filter :find_all_comic_pages
   before_filter :find_page
 
   def index
@@ -10,14 +10,8 @@ class ComicsController < ApplicationController
   end
 
   def show
-    @comic = Comic.find(params[:id])
+    @comic_page = ComicPage.find(params[:id])
 
-		if params[:page]
-			@current_page = params[:page]
-		else
-			@current_page = 1
-		end
-		
     # you can use meta fields from your model instead (e.g. browser_title)
     # by swapping @page for @comic in the line below:
     present(@page)
@@ -26,11 +20,11 @@ class ComicsController < ApplicationController
 protected
 
   def find_all_comics
-    @comics = Comic.order('position ASC')
+    @comic_pages = ComicPage.order('position ASC')
   end
 
   def find_page
-    @page = Page.where(:link_url => "/comics").first
+    @page = Page.where(:link_url => "/comics/#{ ComicPage.find(params[:id]) }/").first
   end
 
 end
