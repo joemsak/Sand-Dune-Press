@@ -11,12 +11,6 @@ class ComicsController < ApplicationController
 
   def show
     @comic = Comic.find(params[:id])
-
-		if params[:page]
-			@current_page = params[:page]
-		else
-			@current_page = 1
-		end
 		
     # you can use meta fields from your model instead (e.g. browser_title)
     # by swapping @page for @comic in the line below:

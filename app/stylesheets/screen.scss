@@ -493,22 +493,43 @@ nav#primary {
 }
 
 #comic-page {
-	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
 	@include column(8);
-	margin-bottom:10px;
 	position:relative;
-	#comic-nav {
-		position:absolute;
-		top:-50px;
-		right:20px;
-	}
+	border-bottom:1px solid #999;
 	.page {
 		display:none;
-		margin:auto;
+		margin:10px auto;
 	}
 	.show {display:block;}
 }
 
+#comic-nav {
+	position:absolute;
+	top:23px;
+	right:20px;
+	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+	.page-count {padding:5px 8px; display:inline-block;}
+	a {
+	display:inline-block;
+	padding:3px 5px;
+	color:#b2ad9a;
+	text-decoration:none;
+		&:hover {
+			color:#444;
+			background-color:#e0dbc7;
+			@include border-radius(5px);
+		}
+	}
+	.disabled {
+		color:#f3f2ee;
+		cursor:default;
+		&:hover {
+			color:#f3f2ee;
+			background-color:#FFF;
+			@include border-radius(0);
+		}
+	}
+}
 
 #comments {
 	margin:20px 0 0;

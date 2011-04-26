@@ -1,18 +1,9 @@
-<section id="comic-page"> 
-	<nav id="comic-nav">
-		<a href="/" class="all">All</a>
-		<a href="/" class="previos">Previous</a>
-		<span class="current-page">
-		<%= @current_page %>
-		</span>
-		<span class="page-count"> / <%= @comic.comic_pages.count %></span>
-		<a href="/" class="next">Next</a>
-	</nav>
-  <% @comic.comic_pages.each do |comic_page| %>  	
-  	<% if @comic.comic_pages.where(:position => @current_page.to_i-1).first == comic_page %>
-  		<%= image_tag comic_page.image.url, :class => 'page show' %>
+<section id="comic-page">
+  <% @comic.comic_pages.each_with_index do |comic_page, i| %>  	
+  	<% if @comic.comic_pages.first == comic_page %>
+  		<%= image_tag comic_page.image.url, :id => (i+1).to_s , :class => 'page show' %>
   	<% else -%>
-  		<%= image_tag comic_page.image.url, :class => 'page' %>  	
+  		<%= image_tag comic_page.image.url, :id => (i+1).to_s , :class => 'page' %>  	
   	<% end -%>
   <% end -%>
 </section>

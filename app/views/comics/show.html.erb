@@ -2,6 +2,10 @@
   <%= @comic.title %>
 <% end %>
 
+<% content_for :body_content_top do %>
+	<%= render :partial => "/comics/comic_pages", :local => { :comic => @comic } %>
+<% end -%>
+
 <% content_for :body_content_left do %>
   <section id="show_comic">
 		<header class="comic-header">
@@ -29,5 +33,5 @@
   </nav>
 <% end %>
 
-<%= render :partial => "/comics/comic_pages", :local => { :comic => @comic } %>
+<%= render :partial => "/comics/comic_nav", :local => { :comic => @comic } %>
 <%= render :partial => "/shared/content_page" %>
