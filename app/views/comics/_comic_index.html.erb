@@ -13,8 +13,7 @@
 			<section class='clearfix'>      
 				<%= truncate(comic.body,
 										 :length => 500,
-										 :preserve_html_tags => true,
-				) %>
+										 :preserve_html_tags => true) %>
 			</section>
 			<footer class="post-footer">
 			  <%= link_to 'read comic', comic_url(comic), :class => 'read-more' %>
@@ -29,8 +28,7 @@
 		<section class='clearfix'>      
 			<%= truncate(comic.body,
 									 :length => 120,
-									 :preserve_html_tags => true,
-			) %>
+									 :preserve_html_tags => true) %>
 		</section>
 		<footer class="post-footer">
 			<%= link_to 'read comic', comic_url(comic), :class => 'read-more' %>
