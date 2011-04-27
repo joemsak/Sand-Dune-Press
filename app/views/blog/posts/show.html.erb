@@ -100,8 +100,6 @@
 	</nav>
 <% end %>
 
-<%= render :partial => "/shared/content_page", :locals => { :remove_automatic_sections => true }  %>
-
 <% if Refinery.version < '0.9.9' %>
   <% content_for :head_libraries, jquery_include_tags(:jquery_ui => false) %>
   <% content_for :head do %>

@@ -10,9 +10,17 @@
 			<div id="main">
 				<header id="header">
 					<%= render :partial => "/shared/header" -%>
+					<%= render :partial => "/comics/comic_nav", :local => { :comic => @comic } unless @comic.nil? -%>
+					<%= render :partial => "/shared/feature" if request.path == '/'%>
 				</header>
-				<section id="content">
-					<%= yield %>
+				<section id="body_content">
+					<%= yield :body_content_top %>
+					<section id="body_content_left">
+						<%= yield :body_content_left %>
+					</section>
+					<section id="body_content_right">
+						<%= yield :body_content_right %>
+					</section>
 				</section>
 			</div>
     </div>

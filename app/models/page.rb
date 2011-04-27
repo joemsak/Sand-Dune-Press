@@ -260,7 +260,7 @@ class Page < ActiveRecord::Base
   class << self
     # Accessor to find out the default page parts created for each new page
     def default_parts
-      ["Body", "Side Body"]
+      RefinerySetting.find_or_set(:default_page_parts, ["Body", "Side Body"])
     end
 
     # Wraps up all the checks that we need to do to figure out whether

@@ -10,21 +10,23 @@
 <% end %>
 
 <% content_for :body_content_left do %>
-	<section id="portfolio">
-		<header class="section-header">
-			<h3><%= @portfolio_entry.title %></h3>
-		</header>
-		<div id='portfolio_main_image_container'>
-			<%= render :partial => "main_image" %>
-		</div>
-		<ul id='portfolio_images'>
-			<% @portfolio_entry.images.each_with_index do |image, index| %>
-				<li class="<%= cycle('odd', 'even') %> #{index == params[:image_id].to_i) ? 'selected' : 'other'}">
-					<%= link_to_portfolio_image(@master_entry, @portfolio_entry, image, index) %>
-				</li>
-			<% end %>
-		</ul>
-  </section>
+	<div class='portfolio'>
+		<section id="portfolio">
+			<header class="section-header">
+				<h3><%= @portfolio_entry.title %></h3>
+			</header>
+			<div id='portfolio_main_image_container'>
+				<%= render :partial => "main_image" %>
+			</div>
+			<ul id='portfolio_images'>
+				<% @portfolio_entry.images.each_with_index do |image, index| %>
+					<li class="<%= cycle('odd', 'even') %> #{index == params[:image_id].to_i) ? 'selected' : 'other'}">
+						<%= link_to_portfolio_image(@master_entry, @portfolio_entry, image, index) %>
+					</li>
+				<% end %>
+			</ul>
+		</section>
+  </div>
 <% end %>
 
 <% content_for :body_content_right do %>
@@ -42,10 +44,6 @@
 		</ul>
   </nav>
 <% end %>
-
-<div class='portfolio'>
-  <%= render :partial => "/shared/content_page" %>
-</div>
 
 <% content_for :head do %>
   <%= stylesheet_link_tag('portfolio') %>
