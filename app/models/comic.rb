@@ -14,4 +14,8 @@ class Comic < ActiveRecord::Base
   
   belongs_to :header_image, :class_name => 'Image'
   belongs_to :image
+  
+   def self.most_recent_with_header
+    all.reject { |c| c.header_image.nil? }.first
+  end
 end

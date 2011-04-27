@@ -1,3 +1,8 @@
+<% if @header_comic %>
 <section id="feature">
-	<a href="#" class="read"></a>
+	<%= image_tag @header_comic.header_image.thumb('100x100>').url %>
+	<% if (@comic.first.created_at.to_i - Time.now.to_i) > 1209600  %>
+		<%= image_tag 'newcomic', :class => 'newcomic' %>
+	<% end -%>
 </section>
+<% end %>

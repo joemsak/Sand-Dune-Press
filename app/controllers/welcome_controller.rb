@@ -13,6 +13,7 @@ class WelcomeController < ApplicationController
   def index
   	@comics = Comic.limit(5).order('position ASC')
   	@blog_posts = BlogPost.limit(4).live
+  	@header_comic = Comic.most_recent_with_header
   end
 	
 	protected

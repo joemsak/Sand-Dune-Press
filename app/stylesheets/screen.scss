@@ -186,7 +186,10 @@ nav#primary {
 			margin-left:.7em;
 		}
 	}
-	#body_content_left {@include column(6);}
+	#body_content_left {
+		clear:left;
+		@include column(6);
+	}
 	#body_content_right {
 		@include column(2, true);
 	}

@@ -1,5 +1,9 @@
 Sanddunepress::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+	ENV['S3_KEY']='AKIAJMRRT6FQ3JHZ6NAQ'
+	ENV['S3_SECRET']='5xi5Qrw7S2hcciwyXy/Y37SWvbWp/5/bwyv7vVv3'
+	ENV['S3_BUCKET']='sanddunepress'
+	Refinery.s3_backend = true
 
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development
