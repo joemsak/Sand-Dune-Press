@@ -30,6 +30,8 @@
 
     # Ensure that even without @page.parts we still have body_content_left and body_content_right
     all_yields = sections.collect{|s| s[:yield]}
+    sections << {:yield => :body_content_right} unless all_yields.include?(:body_content_right)
+    sections << {:yield => :body_content_left} unless all_yields.include?(:body_content_left)
 	end
 
   # you can add more sections to the list using something like this:
@@ -57,7 +59,6 @@
   end
 -%>
 <section id='body_content'<%= " class='#{css.join(' ')}'" if css.present? %>>
-  <%= raw sections.map{|section| section[:html]}.join("\n") if Rails.env.development? -%>
-  <%= raw sections.reverse.map{|section| section[:html]}.join("\n") if Rails.env.production? -%>
+  <%= raw sections.map{|section| section[:html]}.join("\n") -%>
 </section>
 <%= render :partial => '/shared/draft_page_message' unless @page.nil? or @page.live? -%>
