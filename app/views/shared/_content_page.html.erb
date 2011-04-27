@@ -59,6 +59,7 @@
   end
 -%>
 <section id='body_content'<%= " class='#{css.join(' ')}'" if css.present? %>>
-  <%= raw sections.reverse.map{|section| section[:html]}.join("\n") -%>
+  <%= raw sections.map{|section| section[:html]}.join("\n") if Rails.env.development? -%>
+  <%= raw sections.reverse.map{|section| section[:html]}.join("\n") if Rails.env.production? -%>
 </section>
 <%= render :partial => '/shared/draft_page_message' unless @page.nil? or @page.live? -%>
