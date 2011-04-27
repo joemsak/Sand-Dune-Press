@@ -14,8 +14,8 @@
       # these map to 'body' and 'side_body' fields in default Refinery.
       section = {:fallback => part.body}
       section[:yield] = case (title_symbol = part.title.to_s.gsub(/\ /, '').underscore.to_sym)
-        when :side_body then :body_content_right
         when :body then :body_content_left
+        when :side_body then :body_content_right
         else title_symbol
         end
 
@@ -30,8 +30,8 @@
 
     # Ensure that even without @page.parts we still have body_content_left and body_content_right
     all_yields = sections.collect{|s| s[:yield]}
-    sections << {:yield => :body_content_right} unless all_yields.include?(:body_content_right)
     sections << {:yield => :body_content_left} unless all_yields.include?(:body_content_left)
+    sections << {:yield => :body_content_right} unless all_yields.include?(:body_content_right)
 	end
 
   # you can add more sections to the list using something like this:
