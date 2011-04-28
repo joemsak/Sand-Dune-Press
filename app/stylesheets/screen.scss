@@ -432,13 +432,14 @@ nav#primary {
 	@include column(6);
 	h2{ 
 		margin-top:1em;		
+		font-size:2em;
 	}	
 	.post-header {
 		position:relative;
 		.details {
 			color:#26aa89;
 			font-weight:normal;
-			font-size:1.1em;
+			font-size:1.2em;
 			margin:.2em 0;
 			padding:0;
 			.date {font-family:"Neutraface2TextLight",helvetica,arial,sans-serif; text-transform:lowercase;}
@@ -462,6 +463,7 @@ nav#primary {
 		margin:0 0 5px;
 		p {
 			padding-top:5px;
+			font-size:1.1em;
 		}
 	}	
 	#next_prev_article {
@@ -477,7 +479,8 @@ nav#primary {
 #show_comic {
 	@include column(6);
 	h2{ 
-		margin-top:1em;		
+		margin-top:1em;	
+		font-size:2em;
 	}	
 	.comic-header {
 		position:relative;
@@ -485,6 +488,7 @@ nav#primary {
 	section {
 		margin:0 0 5px;
 		p {
+			font-size:1.1em;
 			padding-top:5px;
 		}
 	}	
@@ -504,6 +508,7 @@ nav#primary {
 	top:23px;
 	right:20px;
 	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+	font-size:1.2em;
 	.page-count {padding:5px 8px; display:inline-block;}
 	a {
 	display:inline-block;
@@ -529,18 +534,23 @@ nav#primary {
 
 #comments {
 	margin:20px 0 0;
+	
 	h3 {
 		margin-bottom:10px;
 	}
 	h4 {
 		color:#26aa89;
 	}
+	p {
+		font-size:1.1em;
+	}
 	#comment-form {
 		font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;		
 		margin-top:20px;
 		padding:20px;
 		background:#efefef;
-		border:1px solid #dbdbdb;	
+		border:1px solid #dbdbdb;
+		font-size:1.2em;
 	}
 }
 
