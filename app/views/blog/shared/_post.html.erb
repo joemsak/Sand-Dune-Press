@@ -1,5 +1,11 @@
+<% 
+	home ||= false 
+	divisor = home ? 2 : 3
+-%>
+
+
 <% if post.live? %>
-  <article class="post" id="<%= dom_id(post) %>">
+  <article class="post <%= 'last' if (post_counter + 1) % divisor == 0 %>" id="<%= dom_id(post) %>">
     <header class="post-header">
       <% unless post.image.blank? %>
       	<% post_image = image_fu post.image, '230x100>' %>

@@ -1,9 +1,1 @@
-<section id="comic-page">
-  <% @comic.comic_pages.each_with_index do |comic_page, i| %>  	
-  	<% if @comic.comic_pages.first == comic_page %>
-  		<%= image_tag comic_page.image.url, :id => (i+1).to_s , :class => 'page show' %>
-  	<% else -%>
-  		<%= image_tag comic_page.image.url, :id => (i+1).to_s , :class => 'page' %>  	
-  	<% end -%>
-  <% end -%>
-</section>
+<%= image_tag comic_page.image.url, :class => 'page', "data-next" => comic_page.next.try(:id), "data-position" => comic_page.position + 1, "data-previous" => comic_page.previous.try(:id) %>

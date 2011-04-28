@@ -4,4 +4,11 @@ class ComicPage < ActiveRecord::Base
   
   default_scope :order => 'position ASC'
   
+  def next
+  	ComicPage.where("position > ? AND comic_id = ?", position, comic_id).first
+  end
+  
+  def previous  		
+		ComicPage.where("position < ? AND comic_id = ?", position, comic_id).reverse.first
+  end
 end

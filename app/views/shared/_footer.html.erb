@@ -1,4 +1,8 @@
 <nav id="footer-nav">
+  <%= link_to 'Home', root_path, :class => "#{ 'current-page' if request.path == '/' }" %>
+  <%= link_to 'Articles', blog_root_path, :class => "#{ 'current-page' if request.path.first(5) == '/blog' }"  %>
+  <%= link_to 'Comics', comics_path, :class => "#{ 'current-page' if request.path.first(7) == '/comics' }"  %>
+	<%= link_to 'Portfolio', portfolio_root_path, :class => "#{ 'current-page' if request.path.first(10) == '/portfolio' }"  %>
 	<%= render :partial => "/blog/shared/rss_feed" %>
 </nav>
 <p>2011 <a href="mailto:schnee41@gmail.com">Erik Schneider</a></p>

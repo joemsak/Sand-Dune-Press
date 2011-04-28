@@ -8,7 +8,7 @@
 			</header>
 			<% if @blog_posts.any? %>
 				<article id="posts">
-					<%= render :partial => "/blog/shared/post", :collection => @blog_posts %>
+					<%= render :partial => "/blog/shared/post", :collection => @blog_posts, :locals => { :home => true } %>
 				</article>
 			<% else %>
 				<p><%= t('.no_blog_articles_yet') %></p>

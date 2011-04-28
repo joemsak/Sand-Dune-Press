@@ -10,7 +10,7 @@
 			<div id="main">
 				<header id="header">
 					<%= render :partial => "/shared/header" -%>
-					<%= render :partial => "/comics/comic_nav", :local => { :comic => @comic } unless @comic.nil? -%>
+					<%= render "/comics/comic_nav", :comic_pages => @comic_pages unless @comic.nil? -%>
 					<%= render :partial => "/shared/feature" if request.path == '/'%>
 				</header>
 				<section id="body_content">

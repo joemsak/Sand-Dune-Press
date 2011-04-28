@@ -12,39 +12,26 @@ $(document).ready(function() {
 	$('.not-yet').css('text-decoration', 'line-through');
 	
 	$('#comic-nav a').click(function() {
-		var pageTotal = parseInt($('.page').length);
-		if ($(this).hasClass('previous')) {
-			if ($('.previous').hasClass('disabled')) {
-				return false;
-			} else {
-				var currentId = $('#comic-page .show').attr('id');
-				var previousId = '#' + (parseInt(currentId) - 1);
-				var previousPage = parseInt(currentId) - 1;
-				$('.page').removeClass('show');
-				$(previousId).addClass('show');
-				$('.currentpage').text(previousPage);
-				$('#comic-nav a').removeClass('disabled');
-				if (previousPage == 1) {
-					$('.previous').addClass('disabled');
-				}
-			}
-		}
+		var nextComicId = $('#comic-page img').data('next');
+		var previousComicId = $('#comic-page img').data('previous');
 		if ($(this).hasClass('next')) {
-			if ($('.next').hasClass('disabled')) {
-				return false;
-			} else {
-				var currentId = $('#comic-page .show').attr('id');
-				var nextId = '#' + (parseInt(currentId) + 1);
-				var nextPage = parseInt(currentId) + 1;
-				$('.page').removeClass('show');
-				$(nextId).addClass('show');
-				$('.currentpage').text(nextPage);
-				$('#comic-nav a').removeClass('disabled');
-				if (nextPage == pageTotal) {
-					$('.next').addClass('disabled');
-				}
-			}
+			var url = '/comic_pages/' + nextComicId + '.js'
+		} else {
+			var url = '/comic_pages/' + previousComicId + '.js'
 		}
+		$.get(url, function(data) {
+			$('#comic-page').html(data);
+			var currentPage = $('#comic-page img').data('position');
+			nextComicId = $('#comic-page img').data('next');
+			previousComicId = $('#comic-page img').data('previous');
+			$('.currentpage').html(currentPage);
+			if (undefined == previousComicId) {
+				$('.previous').addClass('disabled')
+			} else { $('.previous').removeClass('disabled') }
+			if (undefined == nextComicId) {
+				$('.next').addClass('disabled')
+			} else { $('.next').removeClass('disabled') }
+		});
 		return false;
 	});
 });

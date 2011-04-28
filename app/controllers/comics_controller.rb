@@ -11,7 +11,8 @@ class ComicsController < ApplicationController
 
   def show
     @comic = Comic.find(params[:id])
-		
+		@comic_page = @comic.comic_pages.first
+		@comic_pages = @comic.comic_pages
     # you can use meta fields from your model instead (e.g. browser_title)
     # by swapping @page for @comic in the line below:
     present(@page)

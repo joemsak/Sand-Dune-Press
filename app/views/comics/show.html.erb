@@ -3,7 +3,9 @@
 <% end %>
 
 <% content_for :body_content_top do %>
-	<%= render :partial => "/comics/comic_pages", :local => { :comic => @comic } %>
+	<section id="comic-page">
+		<%= render "/comics/comic_pages", :comic_page => @comic_page %>
+	</section>
 <% end -%>
 
 <% content_for :body_content_left do %>
@@ -32,5 +34,3 @@
     <%= render :partial => "/shared/secondary-nav.html.erb" -%>
   </nav>
 <% end %>
-
-<%= render :partial => "/shared/content_page" %>

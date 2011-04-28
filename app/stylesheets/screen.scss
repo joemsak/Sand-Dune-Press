@@ -1,22 +1,18 @@
-// This import applies a global reset to any page that imports this stylesheet.
-@import "blueprint/reset";
-
-// To configure blueprint, edit the partials/base.sass file.
+@import "compass/reset";
 @import "partials/base";
-
-// Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
 @import "compass/css3";
-
+@include reset-html5;
 
 body {
 	margin:0;
 	padding:0;
 	font-family:"Paperback6Roman", georgia, "times new roman", serif;
 	text-align:left;
-	font-size:.8em;
+	font-size:.7em;
 	color:#222;
 	background-color:#f3f2ee;
+	line-height:1.5;
 }
 
 h1 {
@@ -39,7 +35,7 @@ h2 {
 h3 {
 	font-family:"Neutraface2TextDemi",helvetica,arial,sans-serif;
 	text-transform:uppercase;
-	font-size:1em;
+	font-size:1.3em;
 	color:#26aa89;
 	margin:0;
 	padding:0;
@@ -53,7 +49,7 @@ h3 {
 
 h4 {
 	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
-	font-size:1em;
+	font-size:1.2em;
 	text-transform: lowercase;
 	margin:0;
 	padding:0;
@@ -68,13 +64,12 @@ h4 {
 p {
 	margin:0;
 	padding:0;
-	font-size:.85em;
 	font-weight:normal;
 }
 
 #wrapper {
 	width:1020px;
-	margin:30px auto 0;
+	margin:40px auto 0;
 	background-color:#FFF;
 	border:1px solid #e0dbc7;
 	#main {
@@ -106,12 +101,13 @@ p {
 
 nav#primary {
 	position:absolute;
-	top:-25px;
-	right:0;
+	top:-31px;
+	right:20px;
 	z-index:1;
 	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
-	font-size:1em;
+	font-size:1.2em;
 	text-transform: lowercase;
+	line-height:1.2;
 	a {
 		display:inline-block;
 		padding:3px 5px 3px;
@@ -153,11 +149,11 @@ nav#primary {
 		overflow:hidden;
 		padding:.7em 0;
 		position:relative;
-		height:15px;
+		height:20px;
 		h3 {float:left;}
 		.pagination {
 			font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
-			font-size:1.2em;
+			font-size:1.3em;
 			position:absolute;
 			right:0;
 			top:5px;
@@ -198,7 +194,7 @@ nav#primary {
 		.nav-header {
 		border-bottom:1px solid #999;
 		padding:.7em 0;
-		height:15px;
+		height:20px;
 		}		
 		.post-image {
 			border:1px solid #999;
@@ -221,7 +217,7 @@ nav#primary {
 			li {
 				font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
 				text-transform:lowercase;
-				font-size:1em;
+				font-size:1.2em;
 				margin:0;
 				padding:0;
 				font-weight:normal;
@@ -252,7 +248,7 @@ nav#primary {
 		@include column(4);
 		.post {
 			@include column(2);
-			&:nth-child(even) {@include column(2, true);}
+			&.last {@include column(2, true);}
 		}
 	}
 	#home-comics {
@@ -293,7 +289,7 @@ nav#primary {
 				display:inline-block;
 				margin:0 0 .6em 0;
 				padding:0;
-				font-size:1.1em;
+				font-size:1.2em;
 				text-transform:lowercase;
 				text-decoration:none;
 				color:#26aa89;
@@ -305,7 +301,7 @@ nav#primary {
 			border-bottom:1px solid #999;
 			padding:1em 0 .7em;
 			margin-bottom:5px;
-			height:15px;
+			height:20px;
 		}
 	}
 }
@@ -316,7 +312,7 @@ nav#primary {
 		padding:0;
 		height:430px;
 		z-index:6;
-		&:nth-child(3n+3) {@include column(2, true);}
+		&.last {@include column(2, true);}
 		.post-header {
 			position:relative;
 			.post-image {
@@ -341,7 +337,7 @@ nav#primary {
 			.details {
 				color:#26aa89;
 				font-weight:normal;
-				font-size:1.1em;
+				font-size:1.2em;
 				margin:.2em 0;
 				padding:0;
 				.date {font-family:"Neutraface2TextLight",helvetica,arial,sans-serif; text-transform:lowercase;}
@@ -372,7 +368,7 @@ nav#primary {
 			display:inline;
 			margin:0 .3em 0 0;
 			padding:0;
-			font-size:1.1em;
+			font-size:1.2em;
 			text-transform:lowercase;
 			text-decoration:none;
 			color:#26aa89;
@@ -499,10 +495,8 @@ nav#primary {
 	position:relative;
 	border-bottom:1px solid #999;
 	.page {
-		display:none;
 		margin:10px auto;
 	}
-	.show {display:block;}
 }
 
 #comic-nav {
@@ -589,6 +583,9 @@ nav#primary {
 	#footer-nav {
 		float:left;
 		@include column(3);
+		a {
+			margin-right:13px;
+		}
 	}
 }
 

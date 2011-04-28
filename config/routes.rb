@@ -2,6 +2,8 @@ Sanddunepress::Application.routes.draw do
 	root :to => "welcome#index"
 	get 'portfolio' => 'portfolio#index', :as => 'portfolio_root'
 	get 'blog' => 'blog/posts#index', :as => 'blog_root'
+	
+	resources :comic_pages, :only => :show
 
 
   # The priority is based upon order of creation:
