@@ -1,12 +1,14 @@
 <% if @blog_posts.many? %>
-  <header class="nav-header">
-  	<h3><%= t('.other') %></h3>
-  </header>
-  <ul id="blog_posts">
-    <% @blog_posts.each do |blog_post| %>
-      <li class='clearfix'>
-        <%= link_to blog_post.title, blog_post_url(blog_post) %>
-      </li>
-    <% end %>
-  </ul>
+  <section>
+		<header class="nav-header">
+			<h4><%= t('.other') %></h4>
+		</header>
+		<ul id="blog_posts">
+			<% @blog_posts.each do |blog_post| %>
+				<li class='clearfix'>
+					<%= link_to blog_post.title, blog_post_url(blog_post) %>
+				</li>
+			<% end %>
+		</ul>
+  </section>
 <% end %>

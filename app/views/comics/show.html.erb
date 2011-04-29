@@ -21,16 +21,18 @@
 
 <% content_for :body_content_right do %>
   <nav id="secondary">
-    <header class="nav-header">
-    	<h3><%= t('.other') %></h3>
-    </header>
-    <ul>
-      <% @comics.each do |comic| %>
-        <li <%= "class='selected'" if @comic == comic %>>
-          <%= link_to comic.title, comic_url(comic) %>
-        </li>
-      <% end %>
-    </ul>
+    <section>
+			<header class="nav-header">
+				<h4><%= t('.other') %></h4>
+			</header>
+			<ul>
+				<% @comics.each do |comic| %>
+					<li <%= "class='selected'" if @comic == comic %>>
+						<%= link_to comic.title, comic_url(comic) %>
+					</li>
+				<% end %>
+			</ul>
+    </section>
     <%= render :partial => "/shared/secondary-nav.html.erb" -%>
   </nav>
 <% end %>

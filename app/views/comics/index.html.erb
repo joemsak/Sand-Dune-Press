@@ -7,11 +7,13 @@
 		</section>
 	<% end %>
 <% content_for :body_content_right do %>
-  <nav id="secondary">
-		<header class="nav-header">
-			<h3>Updates</h3>
-		</header>
-		<div id="tweet"></div>
-		<%= render :partial => "/shared/secondary-nav.html.erb" -%>
-  </nav>
+		<nav id="secondary">
+			<section>
+				<header class="nav-header">
+					<h4>Updates</h4>
+				</header>
+				<div id="tweet"></div>
+			</section>
+			<%= render :partial => "/shared/secondary-nav.html.erb" -%>
+		</nav>
 <% end %>

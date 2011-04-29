@@ -87,12 +87,12 @@
 <% end %>
 
 <% content_for :body_content_right do %>
+	<% unless @blog_post.image.blank? %>
+		<div class="post-image"><%= image_fu @blog_post.image, '230x100>' %></div>
+	<% else %>
+		<div class="post-image"><%= image_tag 'placeholder.png' %></div>	
+	<% end %>
 	<nav id="secondary">
-		<% unless @blog_post.image.blank? %>
-			<div class="post-image"><%= image_fu @blog_post.image, '230x100>' %></div>
-		<% else %>
-			<div class="post-image"><%= image_tag 'placeholder.png' %></div>	
-		<% end %>
 		<%= render :partial => "/blog/shared/categories" %>
 		<%= render :partial => "/blog/shared/posts" %>
 		<%= render :partial => "/shared/secondary-nav.html.erb" -%>

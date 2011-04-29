@@ -26,7 +26,7 @@ h1 {
 h2 {
 	font-family:"Neutraface2TextBold",helvetica,arial,sans-serif;
 	font-weight:normal;
-	font-size:1.6em;
+	font-size:1.8em;
 	padding:0;
 	margin:.2em 0 0;
 	line-height:1em;
@@ -35,7 +35,7 @@ h2 {
 h3 {
 	font-family:"Neutraface2TextDemi",helvetica,arial,sans-serif;
 	text-transform:uppercase;
-	font-size:1.3em;
+	font-size:1.5em;
 	color:#26aa89;
 	margin:0;
 	padding:0;
@@ -48,16 +48,17 @@ h3 {
 }
 
 h4 {
-	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+	font-family:"Neutraface2TextDemi",helvetica,arial,sans-serif;
+	text-transform:uppercase;
 	font-size:1.2em;
-	text-transform: lowercase;
+	color:#26aa89;
 	margin:0;
 	padding:0;
 	font-weight:normal;
 	a {
-		color:#222;
+		color:#26aa89;
 		text-decoration:none;
-		&:hover {text-decoration:underline;}
+		&:hover {text-decoration:underline;}	
 	}
 }
 
@@ -101,11 +102,11 @@ p {
 
 nav#primary {
 	position:absolute;
-	top:-31px;
-	right:20px;
+	top:-32px;
+	right:10px;
 	z-index:1;
 	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
-	font-size:1.2em;
+	font-size:1.3em;
 	text-transform: lowercase;
 	line-height:1.2;
 	a {
@@ -149,7 +150,7 @@ nav#primary {
 		overflow:hidden;
 		padding:.7em 0;
 		position:relative;
-		height:20px;
+		height:24px;
 		h3 {float:left;}
 		.pagination {
 			font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
@@ -177,10 +178,6 @@ nav#primary {
 	}
 	nav {
 		float:right;
-		h4 {
-			display:inline;
-			margin-left:.7em;
-		}
 	}
 	#body_content_left {
 		@include column(6);
@@ -188,47 +185,53 @@ nav#primary {
 	#body_content_right {
 		@include column(2, true);
 	}
+	.post-image {
+		border:1px solid #999;
+		margin:15px 0 10px;
+		width:228px;
+		height:90px;
+		position:relative;
+		img {
+			position:absolute;
+			top:-10px;
+			left:0;
+			width:230px;
+			height:100px;
+		}
+	}
 	#secondary {
 		position:relative;
+		margin-top:10px;
+		border-left:1px solid #999;
 		@include column(2, true);
-		.nav-header {
-		border-bottom:1px solid #999;
-		padding:.7em 0;
-		height:20px;
-		}		
-		.post-image {
-			border:1px solid #999;
-			margin:15px 0 10px;
-			width:228px;
-			height:90px;
-			position:relative;
-			img {
-				position:absolute;
-				top:-10px;
-				left:0;
-				width:230px;
-				height:100px;
-			}
-		}
-		ul {
-			margin:5px 0 15px;
-			padding:0;
-			list-style:none;
-			li {
-				font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
-				text-transform:lowercase;
-				font-size:1.2em;
-				margin:0;
+		section {
+			padding-left:18px;
+			margin-bottom:10px;			
+			.nav-header {
+			padding:.7em 0;
+			height:15px;
+			}		
+			ul {
+				margin:5px 0 15px;
 				padding:0;
-				font-weight:normal;
-				a {
-					color:#222;
-					text-decoration:none;
-					&:hover {text-decoration:underline;}
+				list-style:none;
+				li {
+					font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+					text-transform:lowercase;
+					font-size:1.3em;
+					line-height:1.2;
+					margin:0;
+					padding:0;
+					font-weight:normal;
+					a {
+						color:#222;
+						text-decoration:none;
+						&:hover {text-decoration:underline;}
+					}
 				}
-			}
-			.selected {
-				font-family:"Neutraface2TextDemi",helvetica,arial,sans-serif;			
+				.selected {
+					font-family:"Neutraface2TextDemi",helvetica,arial,sans-serif;			
+				}
 			}
 		}
 		#tweet {
@@ -298,7 +301,6 @@ nav#primary {
 		}
 		.more {
 			clear:both;
-			border-bottom:1px solid #999;
 			padding:1em 0 .7em;
 			margin-bottom:5px;
 			height:20px;
@@ -505,14 +507,14 @@ nav#primary {
 
 #comic-nav {
 	position:absolute;
-	top:23px;
+	top:20px;
 	right:20px;
 	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
-	font-size:1.2em;
+	font-size:1.3em;
 	.page-count {padding:5px 8px; display:inline-block;}
 	a {
 	display:inline-block;
-	padding:3px 5px;
+	padding:0 5px 3px;
 	color:#b2ad9a;
 	text-decoration:none;
 		&:hover {
@@ -572,7 +574,7 @@ nav#primary {
 
 #page-footer {
 	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
-	font-size:1.1em;
+	font-size:1.3em;
 	text-transform:lowercase;
 	width:980px;
 	margin:10px auto 20px;
