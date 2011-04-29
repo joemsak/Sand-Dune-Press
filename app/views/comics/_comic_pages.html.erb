@@ -1,1 +1,1 @@
-<%= image_tag comic_page.image.url, :class => 'page', "data-next" => comic_page.next.try(:id), "data-position" => comic_page.position + 1, "data-previous" => comic_page.previous.try(:id) %>
+<%= image_tag comic_page.image.url, :class => 'page', :height => comic_page.image.height,  "data-next" => comic_page.next.try(:id), "data-position" => comic_page.position + 1, "data-previous" => comic_page.previous.try(:id) %>

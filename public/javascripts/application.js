@@ -11,6 +11,10 @@ $(document).ready(function() {
 	});
 	$('.not-yet').css('text-decoration', 'line-through');
 	
+	if ($('.page').length) {
+		$('.page').fadeIn(500);
+	}
+	
 	$('#comic-nav a').click(function() {
 		var nextComicId = $('#comic-page img').data('next');
 		var previousComicId = $('#comic-page img').data('previous');
@@ -31,6 +35,7 @@ $(document).ready(function() {
 			if (undefined == nextComicId) {
 				$('.next').addClass('disabled')
 			} else { $('.next').removeClass('disabled') }
+			$('.page').fadeIn(500);
 		});
 		return false;
 	});

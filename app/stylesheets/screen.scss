@@ -88,14 +88,25 @@ p {
 
 #header {
 	padding-top:20px;
-	#logo a {
-		background:url('/images/logo.png') no-repeat;
+	#logo {
+		z-index:999;
+		overflow:hidden;
 		width:322px;
 		height:31px;
-		display:block;
-		float:left;
-		padding-bottom:20px;
-		text-indent:-9999px;
+		display:inline-block;
+		padding-bottom:17px;
+		position:relative;
+		a {
+			position:absolute;
+			top:0;
+			left:0;
+			background:url('/images/logo.png') no-repeat;
+			width:322px;
+			height:31px;
+			display:block;
+			text-indent:-9999px;
+			
+		}
 	}
 }
 
@@ -131,12 +142,13 @@ nav#primary {
 	position:relative;
 	margin-bottom:20px;
 	@include span(8);
-	height:200px;
+	height:150px;
+	z-index:0;
 	img {
 		position:absolute;
 		left:0;
 		bottom:0;
-		z-index:2;
+		z-index:0;
 	}
 }
 
@@ -501,6 +513,7 @@ nav#primary {
 	border-bottom:1px solid #999;
 	.page {
 		margin:10px auto;
+		display:none;
 	}
 }
 
