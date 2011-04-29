@@ -7,25 +7,24 @@
 body {
 	margin:0;
 	padding:0;
-	font-family:"Paperback6Roman", georgia, "times new roman", serif;
 	text-align:left;
-	font-size:.7em;
 	color:#222;
 	background-color:#f3f2ee;
 	line-height:1.5;
+	font-size:0.7em;
 }
 
 h1 {
-	font-family:"Neutraface2TextBold",helvetica,arial,sans-serif;
-	font-weight:normal;
+	font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+	font-weight:900;
 	font-size:8em;
 	padding:0;
 	margin:0;
 }
 
 h2 {
-	font-family:"Neutraface2TextBold",helvetica,arial,sans-serif;
-	font-weight:normal;
+	font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+	font-weight:900;
 	font-size:1.8em;
 	padding:0;
 	margin:.2em 0 0;
@@ -33,13 +32,13 @@ h2 {
 }
 
 h3 {
-	font-family:"Neutraface2TextDemi",helvetica,arial,sans-serif;
+	font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
 	text-transform:uppercase;
 	font-size:1.5em;
 	color:#26aa89;
 	margin:0;
 	padding:0;
-	font-weight:normal;
+	font-weight:700;
 	a {
 		color:#26aa89;
 		text-decoration:none;
@@ -48,13 +47,13 @@ h3 {
 }
 
 h4 {
-	font-family:"Neutraface2TextDemi",helvetica,arial,sans-serif;
+	font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
 	text-transform:uppercase;
 	font-size:1.2em;
 	color:#26aa89;
 	margin:0;
 	padding:0;
-	font-weight:normal;
+	font-weight:700;
 	a {
 		color:#26aa89;
 		text-decoration:none;
@@ -65,7 +64,10 @@ h4 {
 p {
 	margin:0;
 	padding:0;
-	font-weight:normal;
+	font-weight:500;
+	font-family:"rooney-web-1","rooney-web-2", georgia, "times new roman", serif;
+	line-height:17px;
+	font-size:13px;
 }
 
 #wrapper {
@@ -115,7 +117,8 @@ nav#primary {
 	top:-32px;
 	right:10px;
 	z-index:1;
-	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+	font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+	font-weight:100;
 	font-size:1.3em;
 	text-transform: lowercase;
 	line-height:1.2;
@@ -164,7 +167,8 @@ nav#primary {
 		height:24px;
 		h3 {float:left;}
 		.pagination {
-			font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+			font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+			font-weight:100;
 			font-size:1.3em;
 			position:absolute;
 			right:0;
@@ -227,13 +231,13 @@ nav#primary {
 				padding:0;
 				list-style:none;
 				li {
-					font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+					font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
 					text-transform:lowercase;
-					font-size:1.3em;
+					font-size:1.2em;
 					line-height:1.2;
 					margin:0;
 					padding:0;
-					font-weight:normal;
+					font-weight:100;
 					a {
 						color:#222;
 						text-decoration:none;
@@ -241,7 +245,7 @@ nav#primary {
 					}
 				}
 				.selected {
-					font-family:"Neutraface2TextDemi",helvetica,arial,sans-serif;			
+					font-weight:500;
 				}
 			}
 		}
@@ -295,11 +299,15 @@ nav#primary {
 			section {
 				margin:0 0 2px;
 				p {
-					padding-top:5px;
+					padding-top:10px;
+					font-family:"rooney-web-1","rooney-web-2", georgia, "times new roman", serif;
+					line-height:17px;
+					font-size:13px;
 				}
 			}
 			.post-footer .read-more {
-				font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+				font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+				font-weight:100;
 				display:inline-block;
 				margin:0 0 .6em 0;
 				padding:0;
@@ -353,9 +361,10 @@ nav#primary {
 				font-size:1.2em;
 				margin:.2em 0;
 				padding:0;
-				.date {font-family:"Neutraface2TextLight",helvetica,arial,sans-serif; text-transform:lowercase;}
+				.date {font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif; font-weight:100; text-transform:lowercase;}
 				.tags {
-					font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+					font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+					font-weight:100;
 					display:inline;
 					margin:0;
 					padding:0;
@@ -377,7 +386,8 @@ nav#primary {
 			}
 		}
 		.post-footer .read-more {
-			font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+			font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+			font-weight:100;
 			display:inline;
 			margin:0 .3em 0 0;
 			padding:0;
@@ -423,11 +433,15 @@ nav#primary {
 		section {
 			margin:0 0 5px;
 			p {
-				padding-top:5px;
+				padding-top:10px;
+				font-family:"rooney-web-1","rooney-web-2", georgia, "times new roman", serif;
+				line-height:17px;
+				font-size:13px;
 			}
 		}
 		.post-footer .read-more {
-			font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+			font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+			font-weight:100;
 			display:inline;
 			margin:0 .3em 0 0;
 			padding:0;
@@ -455,9 +469,10 @@ nav#primary {
 			font-size:1.2em;
 			margin:.2em 0;
 			padding:0;
-			.date {font-family:"Neutraface2TextLight",helvetica,arial,sans-serif; text-transform:lowercase;}
+			.date {font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif; font-weight:100; text-transform:lowercase;}
 			.tags {
-				font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+				font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+				font-weight:100;
 				display:inline;
 				margin:0;
 				padding:0;
@@ -475,12 +490,16 @@ nav#primary {
 	section {
 		margin:0 0 5px;
 		p {
-			padding-top:5px;
+			padding-top:10px;
 			font-size:1.1em;
+			font-family:"rooney-web-1","rooney-web-2", georgia, "times new roman", serif;
+			line-height:17px;
+			font-size:13px;
 		}
 	}	
 	#next_prev_article {
-		font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+		font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+		font-weight:700;
 		a { 
 			color:#26aa89;
 			text-decoration:none; 
@@ -501,8 +520,10 @@ nav#primary {
 	section {
 		margin:0 0 5px;
 		p {
-			font-size:1.1em;
-			padding-top:5px;
+			font-family:"rooney-web-1","rooney-web-2", georgia, "times new roman", serif;
+			line-height:17px;
+			font-size:13px;
+			padding-top:10px;
 		}
 	}	
 }
@@ -522,7 +543,8 @@ nav#primary {
 	position:absolute;
 	top:20px;
 	right:20px;
-	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+	font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+	font-weight:100;
 	font-size:1.3em;
 	.page-count {padding:5px 8px; display:inline-block;}
 	a {
@@ -557,10 +579,13 @@ nav#primary {
 		color:#26aa89;
 	}
 	p {
-		font-size:1.1em;
+		font-family:"rooney-web-1","rooney-web-2", georgia, "times new roman", serif;
+		line-height:17px;
+		font-size:13px;
 	}
 	#comment-form {
-		font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;		
+		font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+		font-weight:100;
 		margin-top:20px;
 		padding:20px;
 		background:#efefef;
@@ -586,7 +611,8 @@ nav#primary {
 }
 
 #page-footer {
-	font-family:"Neutraface2TextLight",helvetica,arial,sans-serif;
+	font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+	font-weight:100;
 	font-size:1.3em;
 	text-transform:lowercase;
 	width:980px;
