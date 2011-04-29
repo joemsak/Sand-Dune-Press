@@ -87,7 +87,6 @@ p {
 }
 
 #header {
-	overflow:hidden;
 	padding-top:20px;
 	#logo a {
 		background:url('/images/logo.png') no-repeat;
@@ -132,7 +131,7 @@ nav#primary {
 	position:relative;
 	margin-bottom:20px;
 	@include span(8);
-	height:150px;
+	height:200px;
 	img {
 		position:absolute;
 		left:0;
