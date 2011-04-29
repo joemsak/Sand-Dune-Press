@@ -44,7 +44,7 @@ $(document).ready(function() {
 	
 	if ($('.page').length) {
 		$('.page').onImagesLoaded(function(_img) {
-    	$(_img).fadeIn(400);
+    	$(_img).fadeIn(400).css('display', 'block');
   	});
   }
 	
@@ -69,7 +69,9 @@ $(document).ready(function() {
 				$('.next').addClass('disabled')
 			} else { $('.next').removeClass('disabled') }
 			$('.page').onImagesLoaded(function(_img) {
-    		$(_img).fadeIn(400);
+    		$(_img).fadeIn(400).css('display', 'block');
+    		var imageHeight = $(_img).height();
+    		$('#comic-page').css('height', imageHeight);
   		});
 		});
 		return false;

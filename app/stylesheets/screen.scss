@@ -508,12 +508,13 @@ nav#primary {
 }
 
 #comic-page {
-	@include column(8);
-	position:relative;
+	@include span(8, true);
+	display:block;
 	border-bottom:1px solid #999;
+	padding:10px 0;
 	.page {
-		margin:10px auto;
 		display:none;
+		margin:auto;
 	}
 }
 

@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body_content_top do %>
-	<section id="comic-page">
+	<section id="comic-page" style="height:<%= @comic_page.image.height %>px;">
 		<%= render "/comics/comic_pages", :comic_page => @comic_page %>
 	</section>
 <% end -%>
