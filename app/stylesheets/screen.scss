@@ -530,6 +530,7 @@ nav#primary {
 
 #comic-page {
 	@include span(8, true);
+	background:url('/images/ajax-loader.gif') center center no-repeat;
 	display:block;
 	border-bottom:1px solid #999;
 	padding:10px 0;
