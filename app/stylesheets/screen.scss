@@ -64,7 +64,7 @@ h4 {
 p {
 	margin:0;
 	padding:0;
-	font-weight:500;
+	font-weight:400;
 	font-family:"rooney-web-1","rooney-web-2", georgia, "times new roman", serif;
 	line-height:17px;
 	font-size:13px;
@@ -549,7 +549,7 @@ nav#primary {
 	.page-count {padding:5px 8px; display:inline-block;}
 	a {
 	display:inline-block;
-	padding:0 5px 3px;
+	padding:3px 5px;
 	color:#b2ad9a;
 	text-decoration:none;
 		&:hover {
@@ -613,7 +613,7 @@ nav#primary {
 #page-footer {
 	font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
 	font-weight:100;
-	font-size:1.3em;
+	font-size:1.2em;
 	text-transform:lowercase;
 	width:980px;
 	margin:10px auto 20px;
@@ -628,6 +628,8 @@ nav#primary {
 		&:hover {text-decoration:underline;}
 	}
 	p {
+		font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+		font-weight:100;
 		color:#b2ad9a;
 		float:right;
 	}
