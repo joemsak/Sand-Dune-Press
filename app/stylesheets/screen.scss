@@ -225,7 +225,19 @@ nav#primary {
 			.nav-header {
 			padding:.7em 0;
 			height:15px;
-			}		
+			}
+			p {
+				font-family:"museo-sans-1","museo-sans-2",helvetica,arial,sans-serif;
+				text-transform:lowercase;
+				font-size:1.2em;
+				line-height:1.2;	
+				font-weight:100;
+				a {
+					color:#26aa89;
+					text-decoration:none;
+					&:hover{text-decoration:underline;}				
+				}
+			}
 			ul {
 				margin:5px 0 15px;
 				padding:0;

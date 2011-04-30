@@ -27,6 +27,12 @@
 <% content_for :body_content_right do %>
   <%=raw @page[Page.default_parts.second.to_sym] if Page.default_parts.many? %>
 	<nav id="secondary">
+		<section id="about">
+			<header class="nav-header">
+				<h4>About</h4>
+			</header>
+			<p>Sand Dune Press is the title of <%= link_to 'things', comics_path %> published by <a href="mailto:schnee41@gmail.com">Erik Schneider</a>, a West Michigan native now living with his girlfriend and cat in Chicago.  He works in <%= link_to 'web development', portfolio_root_path %> so that he has enough money to publish his<br>own <%= link_to 'comics', comics_path %>.</p>
+		</section>
 		<section>
 			<header class="nav-header">
 				<h4>Updates</h4>
