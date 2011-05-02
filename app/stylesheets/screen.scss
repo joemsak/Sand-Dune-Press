@@ -343,7 +343,7 @@ nav#primary {
 	.post { 
 		@include column(2);
 		padding:0;
-		height:430px;
+		height:520px;
 		z-index:6;
 		&.last {@include column(2, true);}
 		.post-header {
