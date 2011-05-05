@@ -141,9 +141,7 @@ nav#primary {
 }
 
 #feature{
-	border-bottom:1px solid #999;
 	position:relative;
-	margin-bottom:20px;
 	@include span(8);
 	height:150px;
 	.header-image {
@@ -200,7 +198,6 @@ nav#primary {
 		float:right;
 	}
 	#body_content_left {
-		@include column(6);
 	}
 	#body_content_right {
 		@include column(2, true);
@@ -222,10 +219,7 @@ nav#primary {
 	#secondary {
 		position:relative;
 		margin-top:10px;
-		border-left:1px solid #999;
-		@include column(2, true);
 		section {
-			padding-left:18px;
 			margin-bottom:10px;			
 			.nav-header {
 			padding:.7em 0;
@@ -281,13 +275,15 @@ nav#primary {
 	}
 	#articles {
 		@include column(4);
+		@include border(#999, 1px);
 		.post {
-			@include column(2);
-			&.last {@include column(2, true);}
+			@include column(4);
+			margin:15px 0;
 		}
 	}
 	#home-comics {
 		@include column(2, true);
+		@include border(#999, 1px);
 		#comics {
 			@include column(2); 
 			height:auto;	
@@ -308,7 +304,7 @@ nav#primary {
 					border:1px solid #e0dbc7;
 					background:#FFF;
 					height:91px;
-					width:228px;
+					width:213px;
 					margin:0;
 					position:relative;
 					top:-11px;
@@ -318,7 +314,7 @@ nav#primary {
 						position:absolute;
 						top:-10px;
 						left:0;
-						width:230px;
+						width:215px;
 						height:100px;
 					}
 				}
@@ -384,7 +380,6 @@ nav#primary {
 	.post { 
 		@include column(2);
 		padding:0;
-		height:420px;
 		z-index:6;
 		&.last {@include column(2, true);}
 		.post-header {

@@ -1,19 +1,6 @@
-<% 
-	home ||= false 
-	divisor = home ? 2 : 3
--%>
-
-
 <% if post.live? %>
-  <article class="post <%= 'last' if (post_counter + 1) % divisor == 0 %>" id="<%= dom_id(post) %>">
+  <article class="post" id="<%= dom_id(post) %>">
     <header class="post-header">
-      <% unless post.image.blank? %>
-      	<% post_image = image_fu post.image, '230x100>' %>
-      	<div class="post-image"><%= link_to post_image, blog_post_url(post)%></div>
-      <% else %>
-      	<% post_image = image_tag 'placeholder.png' %>
-      	<div class="post-image"><%= link_to post_image, blog_post_url(post)%></div>	
-      <% end %>
       <h2><%= link_to post.title, blog_post_url(post) %></h2>
       <section class="details">
         <time datetime="<%=l post.published_at.to_date, :format => :default %>" class='date'>
