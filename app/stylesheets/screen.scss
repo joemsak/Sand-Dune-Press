@@ -91,7 +91,7 @@ p {
 #header {
 	padding-top:20px;
 	#logo {
-		z-index:999;
+		z-index:4;
 		overflow:hidden;
 		width:322px;
 		height:31px;
@@ -146,12 +146,17 @@ nav#primary {
 	margin-bottom:20px;
 	@include span(8);
 	height:150px;
-	z-index:0;
-	img {
+	.header-image {
 		position:absolute;
 		left:0;
 		bottom:0;
 		z-index:0;
+	}
+	.new-issue {
+		position:absolute;
+		bottom:-10px;
+		left:10px;
+		z-index:10;
 	}
 }
 
@@ -301,6 +306,12 @@ nav#primary {
 						width:230px;
 						height:100px;
 					}
+				}
+				.new-comic {
+					position:absolute;
+					top:-10px;
+					left:-10px;
+					z-index:10;
 				}
 				h2 a { 
 					color:#222;
