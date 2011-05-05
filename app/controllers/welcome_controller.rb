@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
   respond_to :html, :js, :rss
 
   def index
-  	@comics = Comic.limit(5).order('position ASC')
+  	@comics = Comic.limit(6).order('position ASC')
   	@blog_posts = BlogPost.limit(4).live
   	@header_comic = Comic.most_recent_with_header
   end

@@ -1,41 +1,49 @@
 <% if comic == @comics.first -%>
-	<article class="post" id="<%= dom_id(comic) %>">
-			<header class="post-header">
-      <% unless comic.image.blank? %>
-      	<% comic_image = image_fu comic.image, '230x100>' %>
-      	<div class="post-image"><%= link_to comic_image, comic_url(comic)%></div>
-      <% else %>
-      	<% comic_image = image_tag 'placeholder.png' %>
-      	<div class="post-image"><%= link_to comic_image, comic_url(comic)%></div>
-      <% end %>
-      <% if (Time.now.to_i - comic.created_at.to_i) < 604800  %>
-				<% new_comic_img = image_tag 'new_comic.png', :class => 'new-comic' %>
-				<%= link_to new_comic_img, comic_url(comic) %>
-			<% end -%>
-      <h2><%= link_to comic.title, comic_url(comic) %></h2>
-			</header>
-			<section class='clearfix'>      
-				<%= truncate(comic.body,
-										 :length => 500,
-										 :preserve_html_tags => true) %>
-			</section>
-			<footer class="post-footer">
-			  <%= link_to 'read comic', comic_url(comic), :class => 'read-more' %>
-			</footer>
-	</article>
-	<div class="more"><h4><%= link_to 'More Comics', comics_path %></h4></div>
-<% else -%>		
-	<article class="post" id="<%= dom_id(comic) %>">
-		<header class="post-header">
-			<h2><%= link_to comic.title, comic_url(comic) %></h2>
+	<article class="comic" id="<%= dom_id(comic) %>">
+		<% unless comic.image.blank? %>
+			<% comic_image = image_fu comic.image, '230x100>' %>
+			<div class="comic-image"><%= link_to comic_image, comic_url(comic)%></div>
+		<% else %>
+			<% comic_image = image_tag 'placeholder.png' %>
+			<div class="comic-image"><%= link_to comic_image, comic_url(comic)%></div>
+		<% end %>
+		<% if (Time.now.to_i - comic.created_at.to_i) < 604800  %>
+			<% new_comic_img = image_tag 'new_comic.png', :class => 'new-comic' %>
+			<%= link_to new_comic_img, comic_url(comic) %>
+		<% end -%>
+		<header class="comic-header">
+		<h2><%= link_to comic.title, comic_url(comic) %></h2>
 		</header>
 		<section class='clearfix'>      
 			<%= truncate(comic.body,
-									 :length => 120,
+									 :length => 500,
 									 :preserve_html_tags => true) %>
 		</section>
-		<footer class="post-footer">
+		<footer class="comic-footer">
 			<%= link_to 'read comic', comic_url(comic), :class => 'read-more' %>
 		</footer>
+	</article>
+<% else -%>		
+	<article class="comic collapsed" id="<%= dom_id(comic) %>">
+			<% unless comic.image.blank? %>
+      	<% comic_image = image_fu comic.image, '230x100>' %>
+      	<div class="comic-image hide"><%= link_to comic_image, comic_url(comic)%></div>
+      <% else %>
+      	<% comic_image = image_tag 'placeholder.png' %>
+      	<div class="comic-image hide"><%= link_to comic_image, comic_url(comic)%></div>
+      <% end %>
+			<div class="comic-inner">
+				<header class="comic-header">
+				<h2><%= link_to comic.title, comic_url(comic) %></h2>
+				</header>
+				<section class='clearfix hide'>      
+					<%= truncate(comic.body,
+											 :length => 500,
+											 :preserve_html_tags => true) %>
+				</section>
+				<footer class="comic-footer hide">
+					<%= link_to 'read comic', comic_url(comic), :class => 'read-more' %>
+				</footer>
+			</div>
 	</article>
 <% end -%>
