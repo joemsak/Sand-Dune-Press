@@ -296,7 +296,7 @@ nav#primary {
 				border:1px solid #e0dbc7;
 				@include border-radius(5px);
 				@include transition(background, 1s);
-				margin:15px 0 5px;
+				margin:15px 0 15px;
 				padding:10px;
 				z-index:20;
 				position:relative;
@@ -362,11 +362,13 @@ nav#primary {
 		}
 		#comics .collapsed {
 			margin:0 0 5px;
+			padding:0;
 			.comic-header {
 				h2 {
 					font-size:16px;
 					margin:0;
 					a {
+						padding:10px;
 						display:block;
 						text-decoration:none;
 						color:#222;
