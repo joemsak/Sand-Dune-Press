@@ -17,9 +17,13 @@
       </section>
     </header>
     <section class='clearfix'>      
+      <% if (request.path.first(5) == '/blog') %>
+      <%= raw post.body %>
+      <% else %>
       <%= truncate(post.body,
                    :length => RefinerySetting.find_or_set(:blog_post_teaser_length, 250),
                    :preserve_html_tags => true) %>
+      <% end %>
     </section>
     <footer class="post-footer">
       <% 

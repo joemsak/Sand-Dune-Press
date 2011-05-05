@@ -198,6 +198,8 @@ nav#primary {
 		float:right;
 	}
 	#body_content_left {
+		@include column(6);
+		@include border(#DBDBDB, 1px);
 	}
 	#body_content_right {
 		@include column(2, true);
@@ -217,6 +219,7 @@ nav#primary {
 		}
 	}
 	#secondary {
+		@include column(2, true);
 		position:relative;
 		margin-top:10px;
 		section {
@@ -275,15 +278,13 @@ nav#primary {
 	}
 	#articles {
 		@include column(4);
-		@include border(#999, 1px);
+		@include border(#DBDBDB, 1px);
 		.post {
 			@include column(4);
-			margin:15px 0;
 		}
 	}
 	#home-comics {
 		@include column(2, true);
-		@include border(#999, 1px);
 		#comics {
 			@include column(2); 
 			height:auto;	
@@ -378,14 +379,13 @@ nav#primary {
 
 #posts, #blog_posts {
 	.post { 
-		@include column(2);
-		padding:0;
+		@include column(6);
+		padding:15px 0;
 		z-index:6;
-		&.last {@include column(2, true);}
 		.post-header {
 			position:relative;
 			.post-image {
-				border:1px solid #999;
+				border:1px solid #DBDBDB;
 				margin:15px 0 10px;
 				width:230px;
 				height:90px;
@@ -459,7 +459,7 @@ nav#primary {
 		.post-header {
 			position:relative;
 			.post-image {
-				border:1px solid #999;
+				border:1px solid #DBDBDB;
 				margin:15px 0 10px;
 				width:230px;
 				height:90px;
@@ -558,6 +558,7 @@ nav#primary {
 
 #show_comic {
 	@include column(6);
+	margin-bottom:40px;
 	h2{ 
 		margin-top:1em;	
 		font-size:2em;

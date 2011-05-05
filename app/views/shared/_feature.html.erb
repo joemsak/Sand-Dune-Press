@@ -2,9 +2,5 @@
 <section id="feature">
 	<% header_img = image_tag @header_comic.header_image.url, :class => 'header-image' %>
 	<%= link_to header_img, comic_url(@header_comic) %>
- 	<% if (Time.now.to_i - @header_comic.created_at.to_i) < 1209600  %>
-		<% new_issue_img = image_tag 'new_issue.png', :class => 'new-issue' %>
-		<%= link_to new_issue_img, comic_url(@header_comic) %>
-	<% end -%>
 </section>
 <% end %>
