@@ -4,7 +4,7 @@ class ComicPagesController < ApplicationController
 
   def show
     @comic_page = ComicPage.find(params[:id])
-    render :partial => "/comics/comic_pages", :locals => {:comic_page => @comic_page}
+    render "/comics/comic_pages", :comic_page => @comic_page
   end
 
 
